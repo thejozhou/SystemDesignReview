@@ -6,7 +6,7 @@
   "author": "JacksLadz",
   "license": "MIT",
   "scripts": {
-    "server": "node server/server.js",
+    "start": "node server/server.js",
     "serve": "live-server public",
     "build": "webpack",
     "dev-server": "webpack-dev-server"
