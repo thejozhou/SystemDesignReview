@@ -23,6 +23,8 @@
     "node-sass": "^4.5.3",
     "react": "15",
     "react-dom": "15",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
