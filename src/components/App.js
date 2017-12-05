@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-
-  export default App;
+const App = () => (
+  <div>
+    login
+  </div>
+)
+export default App;
