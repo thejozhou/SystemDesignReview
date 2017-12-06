@@ -143,7 +143,8 @@ class App extends Component {
               score = {this.state.score}
               completed = {this.state.completed}
               handleAnswerSelected = {this.handleAnswerSelected}
-              handleSubmit = {this.handleSubmit}/>
+              handleSubmit = {this.handleSubmit}
+              logSuccess = {this.state.logSuccess}/>
     </div>
     )
    }
