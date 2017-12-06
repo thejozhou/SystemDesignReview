@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-import '../../css/styles.css'
+import Question from './Question'
 import Login from '../containers/Login';
+import '../../css/styles.css'
 const axios = require('axios');
+
 
 class App extends Component {
 constructor(props) {
@@ -13,7 +14,11 @@ constructor(props) {
     username:"",
     password:"",
     isNew:false,
-    logSuccess:false
+    logSuccess:false,
+    questions: [{
+      question: "Why don't you understand Redux?",
+      answerChoices: ['You are lame', 'Answer', 'You are lame', 'You are lame']
+    }]
   }
 
   this.userChange = this.userChange.bind(this);
@@ -51,18 +56,22 @@ userSave(e) {
 
 render() {
   return (
-  <div className="outerBox">
-    <Login userChange={this.userChange}
-            passChange={this.passChange}
-            userSave = {this.userSave}
-            userSubmit={this.userSubmit}
-            handleNew={this.handleNew}
-            isNew = {this.state.isNew}
-            logSuccess = {this.state.logSuccess}
-            username = {this.state.username}
-          />
+    <div className="app">
+      <div>
+        <Login userChange={this.userChange}
+                passChange={this.passChange}
+                userSave = {this.userSave}
+                userSubmit={this.userSubmit}
+                handleNew={this.handleNew}
+                isNew = {this.state.isNew}
+                logSuccess = {this.state.logSuccess}
+                username = {this.state.username}
+              />
+      </div>
+      <Question state= {this.state} questions={this.state.questions} />
   </div>
   )
  }
 }
+
 export default App;
