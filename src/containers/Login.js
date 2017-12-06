@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-// import '../../css/login.css'
+import '../../css/styles.css'
 
 class Login extends Component {
 
@@ -21,16 +21,16 @@ class Login extends Component {
         username
       } = this.props;
 
-      console.log(isNew)
+      
       if (!isNew && !logSuccess) {
         return (
-            <div>
+            <div className="innerBox">
               <h2>LOGIN</h2>
 
               <form>
-                <input onChange={userChange} name="username" type= "text" placeholder="username"/><br/><br/>
-                <input onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <input onClick={userSubmit} type="submit"/>
+                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
+                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
+                <input className="but" onClick={userSubmit} value="LOGIN" type="submit"/>
               </form>
             <br/>
               <a href="" onClick={handleNew}>create new account</a>
@@ -39,20 +39,21 @@ class Login extends Component {
       }
       else if (isNew&& !logSuccess) {
         return (
-          <div>
+          <div className="innerBox">
               <h3>CREATE NEW ACCOUNT</h3>
               <form>
-                <input onChange={userChange} name="username" type= "text" placeholder="username"/><br/><br/>
-                <input onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <input onClick={userSave} type="submit"/>
+                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
+                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
+                <input className="but" onClick={userSave} value="add account" type="submit"/>
               </form>
           </div>
         )
       }
       else if (logSuccess) {
         return (
-          <div>
+          <div className="innerBox">
             <h3>Welcome, {username}</h3>
+            <h4>Score: </h4>
           </div>
         )
       }

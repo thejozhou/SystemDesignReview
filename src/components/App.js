@@ -68,7 +68,7 @@ render() {
                 username = {this.state.username}
               />
       </div>
-      <Question state= {this.state} questions={this.state.questions} />
+      <Question questions={this.state.questions} />
   </div>
   )
  }
