@@ -21,7 +21,7 @@ class Login extends Component {
         username
       } = this.props;
 
-      
+      // render login page when member is not new and not logged in
       if (!isNew && !logSuccess) {
         return (
             <div className="innerBox">
@@ -37,6 +37,8 @@ class Login extends Component {
             </div>
         );
       }
+
+      //render new account page if member is new and not logged in
       else if (isNew&& !logSuccess) {
         return (
           <div className="innerBox">
@@ -49,6 +51,8 @@ class Login extends Component {
           </div>
         )
       }
+
+      //render welcome page if member is logged in
       else if (logSuccess) {
         return (
           <div className="innerBox">
