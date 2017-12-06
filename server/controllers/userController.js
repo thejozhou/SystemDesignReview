@@ -9,8 +9,8 @@ userController.getAllUsers = (next) => {
     })
     .catch(error => {
         console.log('ERROR:', error); // print the error;
-    })
-    .finally(db.$pool.end); // For immediate app exit, shutting down the connection pool
+    });
+    //.finally(db.$pool.end); // For immediate app exit, shutting down the connection pool
 
 
 

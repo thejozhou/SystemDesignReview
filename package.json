@@ -31,10 +31,6 @@
     "react-dom": "15",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-<<<<<<< HEAD
-=======
-    "redux-devtools": "^3.4.1",
->>>>>>> fc1ca494f707ed6d45f441f42b0090df6e18a89e
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"

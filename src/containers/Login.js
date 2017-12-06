@@ -2,11 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-<<<<<<< HEAD
 // import '../../css/login.css';
-=======
-// import '../../css/login.css'
->>>>>>> fc1ca494f707ed6d45f441f42b0090df6e18a89e
 
 class Login extends Component {
 
