@@ -30,11 +30,11 @@ app.all('/*', function(req, res, next) {
 
 app.use('/', require('./router.js'));
 
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+// app.use(function(req, res, next) {
+//     var err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
 
 // app.listen(3000);
 const server = app.listen(config.port); //listens on port 3000 -> http://localhost:3000/
