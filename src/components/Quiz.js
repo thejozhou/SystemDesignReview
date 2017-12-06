@@ -6,7 +6,7 @@ class Quiz extends Component {
 
   render() {
     const { quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit } = this.props
-
+    console.log('index', index);
     return (
       <div>
         {completed ?
@@ -19,7 +19,7 @@ class Quiz extends Component {
           <h2>Question {index + 1} of {numberOfQuestions}</h2>
 
             <Question
-              question={quiz.questions[0]}
+              question={quiz.questions[index]}
               index={index}
               onAnswerSelected={(event) => handleAnswerSelected(event)}
               onSubmit={() => handleSubmit()}
