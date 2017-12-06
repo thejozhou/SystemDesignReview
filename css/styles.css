@@ -1,0 +1,19 @@
+.innerBox {
+    box-sizing: border-box;
+    font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
+    color: #393939;
+    background-color: #FFF;
+    max-width: 12em;
+    padding: 10px;
+    box-shadow: 10px 15px 39px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+}
+
+.but {
+  width:90%;
+  margin-top:.4em;
+}
+
+.userName {
+  margin-bottom:.4em;
+}
