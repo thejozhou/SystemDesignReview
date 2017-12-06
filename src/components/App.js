@@ -38,6 +38,27 @@ class App extends Component {
                 "label": "25"
               },
             ]
+          },
+          {
+            question: "5 + 5 =",
+            answers: [
+              {
+                "point": 0,
+                "label": "2345"
+              },
+              {
+                "point": 1,
+                "label": "10"
+              },
+              {
+                "point": 0,
+                "label": "999"
+              },
+              {
+                "point": 0,
+                "label": "55"
+              },
+            ]
           }
       ],
       index: 0,
