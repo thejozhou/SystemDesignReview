@@ -1,24 +1,19 @@
-* {
+.innerBox {
     box-sizing: border-box;
     font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
-    margin: 0;
-    padding: 0;
     color: #393939;
     background-color: #FFF;
-}
-
-.innerBox {
-
-    max-width: 15em;
-
+    max-width: 12em;
     padding: 10px;
     box-shadow: 10px 15px 39px rgba(0, 0, 0, .2);
     border-radius: 5px;
 }
 
-/*.innerbox {
-    padding: 10px;
-    width:95%;
+.but {
+  width:90%;
+  margin-top:.4em;
+}
 
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
-}*/
+.userName {
+  margin-bottom:.4em;
+}
