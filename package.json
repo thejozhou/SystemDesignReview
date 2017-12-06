@@ -19,10 +19,15 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+<<<<<<< HEAD
     "bluebird": "^3.5.1",
+=======
+    "bcrypt-nodejs": "0.0.3",
+>>>>>>> d5a2067e3fa1510f1028afd8c2d7eb6a47b8e270
     "css-loader": "^0.28.7",
     "express": "^4.16.2",
     "live-server": "^1.2.0",
+    "morgan": "^1.9.0",
     "material-ui": "^0.20.0",
     "node-sass": "^4.5.3",
     "pg": "^7.4.0",
