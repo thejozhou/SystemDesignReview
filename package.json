@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/server.js",
+    "startalt": "nodemon server/server.js",
     "serve": "live-server public",
     "build": "webpack",
     "dev-server": "webpack-dev-server"
@@ -23,6 +24,7 @@
     "express": "^4.16.2",
     "live-server": "^1.2.0",
     "morgan": "^1.9.0",
+    "material-ui": "^0.20.0",
     "node-sass": "^4.5.3",
     "pg": "^7.4.0",
     "pg-promise": "^7.3.2",
@@ -30,6 +32,7 @@
     "react-dom": "15",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
