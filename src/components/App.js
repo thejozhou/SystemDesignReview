@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import '../../css/styles.css'
 import Login from '../containers/Login';
 const axios = require('axios');
 
@@ -50,7 +51,7 @@ userSave(e) {
 
 render() {
   return (
-  <div>
+  <div className="outerBox">
     <Login userChange={this.userChange}
             passChange={this.passChange}
             userSave = {this.userSave}
