@@ -1,80 +1,11 @@
-const db = require('../models/database');
+const userModel = require('../models/userModel.js');
 const userController = {};
 
-userController.getAllUsers = (next) => {
+userController.getUsers = (req, res, next) => {
+  userModel.selectAll().then((data) => {
 
-  db.any('select * from "User"')
-    .then(data => {
-        console.log('DATA:', data); // print data;
-    })
-    .catch(error => {
-        console.log('ERROR:', error); // print the error;
-    });
-    //.finally(db.$pool.end); // For immediate app exit, shutting down the connection pool
-
-
-
-  // console.log(pool.connect);
-  // const query = 'SELECT * FROM User ORDER BY id ASC;';
-  // db.connect(function (err, client, done) {
-  //   if (err) {
-  //     return console.error('error fetching client from pool', err);
-  //   }
-  //   client.query(query, function (err, results) {
-  //     console.log('inside client.query');
-  //     var json = JSON.stringify(res.rows);
-  //     res.json(json);
-  //     client.release();
-  //   });
-  // });
-
-
-  // pool.connect()
-  // .then(client => {
-  //   return client.query(query, [1])
-  //     .then(res => {
-  //       client.release()
-  //       console.log(res.rows[0])
-  //     })
-  //     .catch(e => {
-  //       client.release()
-  //       console.log(err.stack)
-  //     })
-  // })
-
-
-  // return new Promise((resolve, reject) => {
-  //   const results = [];
-  //
-  //   if(err) {
-  //     done();
-  //     console.log(err);
-  //     return res.status(500).json({success: false, data: err});
-  //   }
-  //   // SQL Query > Select Data
-  //
-  //   // Stream results back one row at a time
-  //   pool.query(query, (err, res) => {
-  //     console.log('err ---> ', err, '\n', 'res ---> ', res);
-  //     if (err) {
-	// 			reject(console.log(err));
-	// 		} else {
-  //       console.log(results);
-	// 			resolve(results);
-  //       next();
-	// 		}
-  //   });
-
-
-    // .on('row', (row) => {
-    //   results.push(row);
-    // });
-    // .on('end', () => {  // After all data is returned, close connection and return results
-    //   // done();
-    //   console.log(results);
-    //   resolve(res.json(results));
-    // });
-  // });
+    res.send(data);
+  });
 };
 
 /**
