@@ -9,7 +9,7 @@
     "start": "node server/server.js",
     "startalt": "nodemon server/server.js",
     "serve": "live-server public",
-    "build": "webpack",
+    "build": "webpack -w",
     "dev-server": "webpack-dev-server"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "body-parser": "^1.18.2",
     "css-loader": "^0.28.7",
     "express": "^4.16.2",
+    "file-loader": "^1.1.5",
     "jwt-simple": "^0.5.1",
     "live-server": "^1.2.0",
     "material-ui": "^0.20.0",

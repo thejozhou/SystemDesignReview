@@ -22,7 +22,7 @@ class Question extends Component {
         marginLeft: '2.5%',
         padding: '2.5em 0',
         // border: '1px solid black',
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(200, 200, 0, .6)',
         borderRadius: '10px'
       },
       submit: {
@@ -45,25 +45,25 @@ class Question extends Component {
           <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>
             <RadioButton
               value={0}
-              label={question.answers[0].label}
+              label={question.answers[0]}
               style={styles.radioButton}
               labelStyle={styles.label}
             />
             <RadioButton
               value={1}
-              label={question.answers[1].label}
+              label={question.answers[1]}
               style={styles.radioButton}
               labelStyle={styles.label}
             />
             <RadioButton
               value={2}
-              label={question.answers[2].label}
+              label={question.answers[2]}
               style={styles.radioButton}
               labelStyle={styles.label}
             />
             <RadioButton
               value={3}
-              label={question.answers[3].label}
+              label={question.answers[3]}
               style={styles.radioButton}
               labelStyle={styles.label}
             />

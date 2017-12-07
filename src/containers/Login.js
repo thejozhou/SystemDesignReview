@@ -12,7 +12,17 @@ class Login extends Component {
     //function
 
     render() {
-
+      const styles = {
+        input: {
+          width: '90%',
+          padding: '15px',
+          'border': '1px solid black'
+        },
+        button: {
+          border: '1px solid gray',
+          padding: '5px'
+        }
+      }
       const {
         userChange,
         passChange,
@@ -32,14 +42,14 @@ class Login extends Component {
       if (!isNew && !logSuccess) {
         return (
             <div className="innerBox">
-              <span style={{'margin-left':'50%'}}><h2>LOGIN</h2></span>
+              {/*<span style={{'margin-left':'50%'}}><h2>LOGIN</h2></span>*/}
               <form>
-                <TextField className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username"/><br/>
-                <TextField className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password"/><br/>
-                <RaisedButton primary={true} label="LOGIN" className="but" onClick={userSubmit} type="submit"/>
+                <input className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username" /><br/>
+                <input className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password" /><br/>
+                <input value="Log in" className="but" onClick={userSubmit} type="submit" />
+                <input id="register" className="but" type="submit" value="New account" href="" onClick={handleNew}/>
               </form>
-            <br/>
-              <a href="" onClick={handleNew}>create new account</a>
+
             </div>
         );
       }
@@ -48,12 +58,12 @@ class Login extends Component {
       else if (isNew&& !logSuccess) {
         return (
           <div className="innerBox">
-              <h3>CREATE NEW ACCOUNT</h3>
+              <span style={{fontSize: '20px'}}>New Account</span>
               <form>
-                <TextField className="userName" onChange={userChange} value={username} name="username" type= "text" placeholder="username"/><br/>
-                <TextField className="pword" onChange={passChange} value = {password} name="password" type="password" placeholder="password"/><br/>
-                <TextField className="email" onChange={emailChange} value = {email} name="email" type="text" placeholder="email"/><br/>
-                <RaisedButton primary={true} label="Add Account" className="but" onClick={userSave} type="submit"/>
+                <input className="userName" onChange={userChange} value={username} name="username" type= "text" placeholder="username"/><br/>
+                <input className="pword" onChange={passChange} value = {password} name="password" type="password" placeholder="password"/><br/>
+                <input className="email" onChange={emailChange} value = {email} name="email" type="text" placeholder="email"/><br/>
+                <input value="Add Account" className="but" onClick={userSave} type="submit"/>
               </form>
           </div>
         )
@@ -62,11 +72,11 @@ class Login extends Component {
       //render welcome page if member is logged in
       else if (logSuccess) {
         return (
-          <div className="innerBox">
+          {/*<div className="innerBox">
             <h3>Welcome, {username}</h3>
             <h4>Score: </h4>
             <a href="" onClick={handleLogout}>logout</a>
-          </div>
+          </div>*/}
         )
       }
     }

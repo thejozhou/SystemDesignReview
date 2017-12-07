@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Question from './Question'
 import Quiz from './Quiz';
 import Login from '../containers/Login';
+import Background from '../../css/animalCollective.jpg'
 import '../../css/styles.css'
 const axios = require('axios');
 
@@ -77,11 +78,13 @@ class App extends Component {
   }
 
   componentDidMount () {
-    // axios.get('/api/v1/fun')
-    //   .then(res => {
-    //     console.log('data', res.data)
-    //     this.setState({ quiz: res.data });
-    //   });
+    axios.get('/api/v1/fun')
+      .then(res => {
+        console.log('data', res.data)
+        const stateNew = Object.assign({}, this.state);
+        stateNew.quiz.questions = res.data;
+        this.setState(stateNew);
+      });
   }
 
   handleNew = (e) => {
@@ -153,22 +156,22 @@ class App extends Component {
     } else {
       stateNew.quiz.completed = true;
       this.setState(stateNew);
-      let score = quiz.score;
-      stateNew.quiz.answers.map((answer, i) => (
-        score = score + quiz.questions[i].answers[answer].point
-      ))
-      console.log('score', score);
-      stateNew.quiz.score = score;
-      this.setState(stateNew)
+      // let score = quiz.score;
+      // stateNew.quiz.answers.map((answer, i) => (
+      //   score = score + quiz.questions[i].answers[answer].point
+      // ))
+      // console.log('score', score);
+      // stateNew.quiz.score = score;
+      // this.setState(stateNew)
     }
   }
 
   handleAnswerSelected = (event) => {
-    const { quiz } = this.state;
-    let list = [...quiz.answers.slice(0, quiz.index),
-                event.target.value,
-                ...quiz.answers.slice(quiz.index + 1)]
-    this.setState({'answers': list})
+    // const { quiz } = this.state;
+    // let list = [...quiz.answers.slice(0, quiz.index),
+    //             event.target.value,
+    //             ...quiz.answers.slice(quiz.index + 1)]
+    // this.setState({'answers': list})
   }
 
   render() {
@@ -180,11 +183,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className="app">
-        <div className="title">
-          <div className="sdr">System Design Review</div>
-          <div className="interview">interviewing the full stack engineer</div>
-        </div>
-        <RaisedButton className="takeQuizBtn" label="Take New Quiz" primary={true} style={styles.submit}/>
+        <img className="background" src={Background} />
         <div className="loginWrapper">
           <Login userChange={this.userChange}
                   passChange={this.passChange}
