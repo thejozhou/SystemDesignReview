@@ -68,18 +68,17 @@ class App extends Component {
       completed: false
       }
     }
-    //
-    // this.userChange = this.userChange.bind(this);
-    // this.passChange = this.passChange.bind(this);
-    // this.userSubmit = this.userSubmit.bind(this);
-    // this.userSave = this.userSave.bind(this);
-    // this.handleNew = this.handleNew.bind(this);
 
   }
 
   handleNew = (e) => {
     e.preventDefault()
     this.setState({isNew:true});
+  }
+
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.setState({isNew:false, logSuccess:false})
   }
 
   userChange = (e) => {
@@ -132,6 +131,7 @@ class App extends Component {
                   userSave = {this.userSave}
                   userSubmit={this.userSubmit}
                   handleNew={this.handleNew}
+                  handleLogout = {this.handleLogout}
                   isNew = {this.state.isNew}
                   logSuccess = {this.state.logSuccess}
                   username = {this.state.username}
