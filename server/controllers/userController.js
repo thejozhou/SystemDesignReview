@@ -2,6 +2,7 @@ const userModel = require('../models/userModel.js');
 const config = require('../config/main.js');
 const bcrypt = require('bcrypt-nodejs')
 const salt = bcrypt.genSaltSync(10);
+const jwt = require('jwt-simple');
 
 const userController = {
 
@@ -52,9 +53,9 @@ const userController = {
         return;
       } else {
         res.status(200)
-        res.json({
-          genToken(result);
-        })
+        res.json(
+          genToken(result)
+        )
       }
     })
     .catch((err) => {
@@ -67,7 +68,7 @@ genToken = (user) => {
   const expires = expiresIn(7);
   const token = jwt.encode({
     exp: expires
-  }, config.secret());
+  }, config.secret);
   return {
     status: 'success',
     token: token,
@@ -77,7 +78,7 @@ genToken = (user) => {
 }
 
 expiresIn = (numDays) => {
-  const dateObj = newDate();
+  const dateObj = new Date();
   return dateObj.setDate(dateObj.getDate() + numDays);
 }
 
