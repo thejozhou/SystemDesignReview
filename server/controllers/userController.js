@@ -3,7 +3,6 @@ const userController = {};
 
 userController.getUsers = (req, res, next) => {
   userModel.selectAll().then((data) => {
-
     res.send(data);
   });
 };

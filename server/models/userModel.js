@@ -7,7 +7,7 @@ const userModel = {
           return data;
       })
       .catch(error => {
-          console.log('ERROR:', error); // print the error;
+          console.log('ERROR:', error); 
       });
   },
 };
