@@ -18,7 +18,8 @@ class Login extends Component {
         isNew,
         logSuccess,
         handleNew,
-        username
+        username,
+        handleLogout
       } = this.props;
 
       // render login page when member is not new and not logged in
@@ -58,6 +59,7 @@ class Login extends Component {
           <div className="innerBox">
             <h3>Welcome, {username}</h3>
             <h4>Score: </h4>
+            <a href="" onClick={handleLogout}>logout</a>
           </div>
         )
       }

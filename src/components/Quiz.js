@@ -34,9 +34,11 @@ class Quiz extends Component {
     //if the user is not verified then the logo screen is rendered
     else {
       return (
-        <div className="sdr">
-          System Design Review
+        <div className="title">
+          <div className="sdr">System Design Review</div>
+          <div className="interview">interviewing the full stack engineer</div>
         </div>
+
 
       )
     }
