@@ -17,6 +17,10 @@
     border-radius: 5px;
 }
 
+.welcome {
+
+}
+
 .loginWrapper {
   position: relative;
   width: 100%;
@@ -41,6 +45,7 @@
 
 .sdr {
     font-size:4em;
+
 }
 
 .theQuiz {

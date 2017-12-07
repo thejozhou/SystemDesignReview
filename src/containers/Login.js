@@ -21,6 +21,7 @@ class Login extends Component {
         userSave,
         isNew,
         logSuccess,
+        score,
         handleNew,
         username,
         password,
@@ -62,9 +63,9 @@ class Login extends Component {
       //render welcome page if member is logged in
       else if (logSuccess) {
         return (
-          <div className="innerBox">
+          <div className="welcome">
             <h3>Welcome, {username}</h3>
-            <h4>Score: </h4>
+            <h4>Score: {score}</h4>
             <a href="" onClick={handleLogout}>logout</a>
           </div>
         )
