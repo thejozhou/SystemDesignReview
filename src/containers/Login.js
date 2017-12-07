@@ -46,8 +46,8 @@ class Login extends Component {
               <form>
                 <input className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username" /><br/>
                 <input className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password" /><br/>
-                <input value="Log in" className="but" onClick={userSubmit} type="submit" />
-                <input id="register" className="but" type="submit" value="New account" href="" onClick={handleNew}/>
+                <input value="Log In" className="but" onClick={userSubmit} type="submit" />
+                <input id="register" className="but" type="submit" value="New Account" href="" onClick={handleNew}/>
               </form>
 
             </div>

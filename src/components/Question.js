@@ -22,7 +22,7 @@ class Question extends Component {
         marginLeft: '2.5%',
         padding: '2.5em 0',
         // border: '1px solid black',
-        backgroundColor: 'rgba(200, 200, 0, .6)',
+        backgroundColor: '#eee',
         borderRadius: '10px'
       },
       submit: {
@@ -31,7 +31,7 @@ class Question extends Component {
         width: '40%'
       },
       label: {
-        'font-size': '30px',
+        'font-size': '20px',
         'font-weight': 'bold'
       }
     };

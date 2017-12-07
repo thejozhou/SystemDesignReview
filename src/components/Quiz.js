@@ -13,12 +13,14 @@ class Quiz extends Component {
       <div>
         {completed ?
           <div className="theQuiz">
-            <h2>Congratulations, you finished the quiz</h2>
-            <h2>Your score is <span className="score">{score}</span></h2>
+            <div className="completedMessage">
+              <h2>Congratulations, you finished the quiz</h2>
+              <h2>Your score is <span className="score">{score}</span></h2>
+            </div>
           </div>
         :
           <div className="theQuiz">
-          <h2>Question {index + 1}</h2>
+          <h2 style={{marginLeft: '2.5%'}}>Question {index + 1}</h2>
 
             <Question
               question={quiz.questions[index]}

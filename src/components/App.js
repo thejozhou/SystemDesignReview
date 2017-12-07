@@ -182,31 +182,33 @@ class App extends Component {
     }
     return (
       <MuiThemeProvider>
-      <div className="app">
-        <img className="background" src={Background} />
-        <div className="loginWrapper">
-          <Login userChange={this.userChange}
-                  passChange={this.passChange}
-                  emailChange={this.emailChange}
-                  userSave = {this.userSave}
-                  userSubmit={this.userSubmit}
-                  handleNew={this.handleNew}
-                  handleLogout = {this.handleLogout}
-                  isNew = {this.state.isNew}
-                  logSuccess = {this.state.logSuccess}
-                  username = {this.state.username}
-                  password = {this.state.password}
-                  email = {this.state.email}
-                />
+      <div>
+        <div className="app">
+          <div className="loginWrapper">
+            <Login userChange={this.userChange}
+                    passChange={this.passChange}
+                    emailChange={this.emailChange}
+                    userSave = {this.userSave}
+                    userSubmit={this.userSubmit}
+                    handleNew={this.handleNew}
+                    handleLogout = {this.handleLogout}
+                    isNew = {this.state.isNew}
+                    logSuccess = {this.state.logSuccess}
+                    username = {this.state.username}
+                    password = {this.state.password}
+                    email = {this.state.email}
+                  />
+          </div>
+          <Quiz quiz = {this.state.quiz}
+                index = {this.state.quiz.index}
+                numberOfQuestions = {this.state.quiz.numberOfQuestions}
+                score = {this.state.quiz.score}
+                completed = {this.state.quiz.completed}
+                handleAnswerSelected = {this.handleAnswerSelected}
+                handleSubmit = {this.handleSubmit}
+                logSuccess = {this.state.logSuccess}/>
+          <img className="background" src={Background} />
         </div>
-        <Quiz quiz = {this.state.quiz}
-              index = {this.state.quiz.index}
-              numberOfQuestions = {this.state.quiz.numberOfQuestions}
-              score = {this.state.quiz.score}
-              completed = {this.state.quiz.completed}
-              handleAnswerSelected = {this.handleAnswerSelected}
-              handleSubmit = {this.handleSubmit}
-              logSuccess = {this.state.logSuccess}/>
       </div>
       </MuiThemeProvider>
     )
