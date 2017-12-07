@@ -39,7 +39,7 @@ class Question extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <span className='question'>
+          <span className='questionWrapper'>
             <h1 className="questionText">{question.question}</h1>
           </span>
           <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>

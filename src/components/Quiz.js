@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Question from './Question';
 import Background from '../../css/animalCollective.jpg'
-
-
 import '../../css/styles.css'
+
+
 class Quiz extends Component {
 
   render() {

@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import '../../css/styles.css'
-
+import Background from '../../css/animalCollective.jpg'
 
 class Login extends Component {
 

@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Question from './Question'
 import Quiz from './Quiz';
 import Login from '../containers/Login';
-import Background from '../../css/animalCollective.jpg'
+import Background from '../../css/brain.png'
 import '../../css/styles.css'
 const axios = require('axios');
 
@@ -207,7 +207,8 @@ class App extends Component {
                 handleAnswerSelected = {this.handleAnswerSelected}
                 handleSubmit = {this.handleSubmit}
                 logSuccess = {this.state.logSuccess}/>
-          {/*<img className="background" src={Background} />*/}
+
+          <img className="background" src={Background} />
         </div>
       </div>
       </MuiThemeProvider>
