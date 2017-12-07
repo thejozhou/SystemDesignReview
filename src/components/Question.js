@@ -11,7 +11,6 @@ class Question extends Component {
   }
 
   render() {
-    console.log('this is working')
     const { question, index, onAnswerSelected, onSubmit } = this.props;
     const styles = {
       block: {

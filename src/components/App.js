@@ -38,6 +38,27 @@ class App extends Component {
                 "label": "25"
               },
             ]
+          },
+          {
+            question: "5 + 5 =",
+            answers: [
+              {
+                "point": 0,
+                "label": "2345"
+              },
+              {
+                "point": 1,
+                "label": "10"
+              },
+              {
+                "point": 0,
+                "label": "999"
+              },
+              {
+                "point": 0,
+                "label": "55"
+              },
+            ]
           }
       ],
       index: 0,
@@ -47,18 +68,17 @@ class App extends Component {
       completed: false
       }
     }
-    //
-    // this.userChange = this.userChange.bind(this);
-    // this.passChange = this.passChange.bind(this);
-    // this.userSubmit = this.userSubmit.bind(this);
-    // this.userSave = this.userSave.bind(this);
-    // this.handleNew = this.handleNew.bind(this);
 
   }
 
   handleNew = (e) => {
     e.preventDefault()
     this.setState({isNew:true});
+  }
+
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.setState({isNew:false, logSuccess:false})
   }
 
   userChange = (e) => {
@@ -111,6 +131,7 @@ class App extends Component {
                   userSave = {this.userSave}
                   userSubmit={this.userSubmit}
                   handleNew={this.handleNew}
+                  handleLogout = {this.handleLogout}
                   isNew = {this.state.isNew}
                   logSuccess = {this.state.logSuccess}
                   username = {this.state.username}
@@ -122,7 +143,8 @@ class App extends Component {
               score = {this.state.score}
               completed = {this.state.completed}
               handleAnswerSelected = {this.handleAnswerSelected}
-              handleSubmit = {this.handleSubmit}/>
+              handleSubmit = {this.handleSubmit}
+              logSuccess = {this.state.logSuccess}/>
     </div>
     )
    }

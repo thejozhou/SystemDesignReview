@@ -1,70 +1,84 @@
 const userModel = require('../models/userModel.js');
-const userController = {};
+const config = require('../config/main.js');
+const bcrypt = require('bcrypt-nodejs')
+const salt = bcrypt.genSaltSync(10);
 
-userController.getUsers = (req, res, next) => {
-  userModel.selectAll().then((data) => {
-    res.send(data);
-  });
-};
+const userController = {
 
-/**
-* createUser - create a new User model and then save the user to the database.
-*/
-// userController.createUser = (req, res, next) => {
-//   User.create(req.body, (err, result) => {
-//     if (err) {
-//       return res.render('./../client/signup', {error: err});
-//     }
-//     req.currentUserId = result._id;
-//     next();
-//   });
-// };
+  getUsers: (req, res, next) => {
+    userModel.selectAll()
+    .then((data) => {
+      res.status(200)
+      .json({
+        status: 'success',
+        data: data,
+        message: 'Retrieved ALL users'
+      });
+    })
+    .catch((err) => {
+      return next(err);
+    });
+  },
 
-/**
-* verifyUser - Obtain username and password from the request body, locate
-* the appropriate user in the database, and then authenticate the submitted password
-* against the password stored in the database.
-**/
-// userController.verifyUser = (req, res, next) => {
-//   console.log('verify user ', req.body);
-//   const verify = new Promise((resolve, reject) => {
-//     User.findOne({username: req.body.username}, (err, doc) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve(doc);
-//       }
-//     });
-//   });
-//   verify
-//     .then((result) => {
-//       if (result.length === 0) {
-//         return res.redirect('/signup');
-//       } else {
-//         console.log('result: ', result);
-//         console.log(User);
-//         result.comparePassword(req.body.password, (isMatch) => {
-//           if (isMatch) {
-//             req.currentUserId = result._id;
-//             next();
-//           } else {
-//             res.redirect('/');
-//           }
-//         });
-//         // bcrypt.compare(req.body.password, result.password, function(err, isMatch) {
-//         //     if (err) return console.log(err);
-//         //     if (isMatch) {
-//         //       req.currentUserId = result._id;
-//         //       next();
-//         //     } else {
-//         //       res.redirect('/');
-//         //     }
-//         // });
-//       }
-//     })
-//     .catch((err) => {
-//       console.log('error: ', err);
-//     });
-// };
+  createUser: (req, res, next) => {
+    userModel.create(req.body)
+      .then((data) => {
+      res.status(200)
+      res.json({
+      status: 'success',
+      message: 'Created new user'
+      });
+    })
+    .catch((err) => {
+      return next(err);
+    })
+  },
+
+  verifyUser: (req, res, next) => {
+    username = req.body.username;
+    password = req.body.password;
+
+    userModel.findOne(username)
+    .then((result) => {
+      console.log("can access salt?", salt);
+      console.log("can access password?", password);
+      const verifyPassword = bcrypt.compareSync(password, result.password);
+      if (result.username !== username || !verifyPassword) {
+        res.status(401);
+        res.json({
+          status: 401,
+          message: "Invalid credentials"
+        });
+        return;
+      } else {
+        res.status(200)
+        res.json({
+          status: 'success',
+          message: 'Verification complete!'
+        })
+      }
+    })
+    .catch((err) => {
+      console.log('error: ', err);
+    });
+  }
+}
+
+genToken = (user) => {
+  const expres = expiresIn(7);
+  const token = jwt.encode({
+    exp: expires
+  }, config.secret());
+  return {
+    token: token,
+    expires: expires,
+    user: user
+  };
+}
+
+expiresIn = (numDays) => {
+  const dateObj = newDate();
+  return dateObj.setDate(dateObj.getDate() + numDays);
+}
 
 module.exports = userController;

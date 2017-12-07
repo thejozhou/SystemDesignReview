@@ -1,3 +1,5 @@
 node_modules
 .vscode
+public
+public/bundle.js
 bundle.js
