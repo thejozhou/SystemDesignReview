@@ -92,10 +92,21 @@ class App extends Component {
 
   userSubmit = (e) => {
     e.preventDefault()
-    //axios.post('/confirm',{username:this.state.username,password:this.state.password})
-    this.setState({logSuccess:true})
-
-  }
+    const headers = { 'Content-Type': 'application/json'}
+    fetch('/login',{
+            method:"POST",
+            headers,
+            body:JSON.stringify({username:this.state.username,password:this.state.password})
+          })
+          .then((res) => {
+            if (res.status===200) this.setState({logSuccess:true})
+            else {
+              console.log('faaaaaaaaaaaaaaaaaaaaaaaaaalse')
+              this.setState({logSuccess:false})
+            }
+          })
+          .catch(err => console.log('errrrrrrrrrrorrrrrrr',err))
+    }
 
   userSave = (e) => {
     e.preventDefault()
