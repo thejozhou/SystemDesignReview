@@ -11,12 +11,12 @@ class Quiz extends Component {
       <div>
         {completed ?
           <div>
-            <p>Congratulations, you finish the quiz</p>
-            Your score is {score}
+            <h2>Congratulations, you finished the quiz</h2>
+            <h2>Your score is <span className="score">{score}</span></h2>
           </div>
         :
           <div>
-          <h2>Question {index + 1} of {numberOfQuestions}</h2>
+          <h2>Question {index + 1}</h2>
 
             <Question
               question={quiz.questions[index]}
