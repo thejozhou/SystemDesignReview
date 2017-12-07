@@ -16,12 +16,15 @@ class Login extends Component {
       const {
         userChange,
         passChange,
+        emailChange,
         userSubmit,
         userSave,
         isNew,
         logSuccess,
         handleNew,
         username,
+        password,
+        email,
         handleLogout
       } = this.props;
 
@@ -31,9 +34,9 @@ class Login extends Component {
             <div className="innerBox">
               <span style={{'margin-left':'50%'}}><h2>LOGIN</h2></span>
               <form>
-                <TextField className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <TextField className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <RaisedButton primary={true} className="but" onClick={userSubmit} label="LOGIN" type="submit"/>
+                <TextField className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username"/><br/>
+                <TextField className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password"/><br/>
+                <RaisedButton primary={true} label="LOGIN" className="but" onClick={userSubmit} type="submit"/>
               </form>
             <br/>
               <a href="" onClick={handleNew}>create new account</a>
@@ -47,9 +50,10 @@ class Login extends Component {
           <div className="innerBox">
               <h3>CREATE NEW ACCOUNT</h3>
               <form>
-                <TextField className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <TextField className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <RaisedButton primary = {true} className="but" onClick={userSave} label="Add Account" type="submit"/>
+                <TextField className="userName" onChange={userChange} value={username} name="username" type= "text" placeholder="username"/><br/>
+                <TextField className="pword" onChange={passChange} value = {password} name="password" type="password" placeholder="password"/><br/>
+                <TextField className="email" onChange={emailChange} value = {email} name="email" type="text" placeholder="email"/><br/>
+                <RaisedButton primary={true} label="Add Account" className="but" onClick={userSave} type="submit"/>
               </form>
           </div>
         )

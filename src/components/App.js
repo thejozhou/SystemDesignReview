@@ -18,6 +18,7 @@ class App extends Component {
     this.state = {
       username:"",
       password:"",
+      email:"",
       isNew:false,
       logSuccess:false,
       quiz: {
@@ -103,15 +104,42 @@ class App extends Component {
     this.setState({password:e.target.value});
   }
 
-  userSubmit = (e) => {
-    e.preventDefault()
-    //axios.post('/confirm',{username:this.state.username,password:this.state.password})
-    this.setState({logSuccess:true})
-
+  emailChange = (e) => {
+    this.setState({email:e.target.value});
   }
 
-  userSave = (e) => {
+  userSubmit = (e) => {
     e.preventDefault()
+    const headers = { 'Content-Type': 'application/json'}
+    fetch('/login',{
+            method:"POST",
+            headers,
+            body:JSON.stringify({username:this.state.username,password:this.state.password})
+          })
+          .then((res) => {
+            if (res.status===200) this.setState({logSuccess:true})
+            else {
+              this.setState({username:'',password:''})
+            }
+          })
+          .catch(err => console.log('errrrrrrrrrrorrrrrrr',err))
+    }
+
+  userSave = (e) => {
+    e.preventDefault();
+      const headers = { 'Content-Type': 'application/json'}
+    fetch('/register',{
+            method:"POST",
+            headers,
+            body:JSON.stringify({username:this.state.username,password:this.state.password,email:this.state.email})
+          })
+          .then((res) => {
+            if (res.status===200) this.setState({logSuccess:true})
+            else {
+              this.setState({username:'',password:''})
+            }
+          })
+          .catch(err => console.log('errrrrrrrrrrorrrrrrr',err))
     //axios.post('/save',{username:this.state.username,password:this.state.password})
   }
 
@@ -161,6 +189,7 @@ class App extends Component {
         <div className="loginWrapper">
           <Login userChange={this.userChange}
                   passChange={this.passChange}
+                  emailChange={this.emailChange}
                   userSave = {this.userSave}
                   userSubmit={this.userSubmit}
                   handleNew={this.handleNew}
@@ -168,6 +197,8 @@ class App extends Component {
                   isNew = {this.state.isNew}
                   logSuccess = {this.state.logSuccess}
                   username = {this.state.username}
+                  password = {this.state.password}
+                  email = {this.state.email}
                 />
         </div>
         <Quiz quiz = {this.state.quiz}

@@ -2,7 +2,6 @@ const db = require('../db/index.js');
 const bcrypt = require('bcrypt-nodejs');
 const salt = bcrypt.genSaltSync(10);
 
-
 const userModel = {
 
   selectAll : () => {

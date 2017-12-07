@@ -41,8 +41,14 @@ const userController = {
 
     userModel.findOne(username)
     .then((result) => {
-      console.log("can access salt?", salt);
-      console.log("can access password?", password);
+      if (!result) {
+        res.status(401);
+        res.json({
+          status: 401,
+          message: "Invalid credentials"
+        });
+        return;
+      };
       const verifyPassword = bcrypt.compareSync(password, result.password);
       if (result.username !== username || !verifyPassword) {
         res.status(401);
