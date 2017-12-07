@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// MATERIAL UI
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+// COMPONENTS
 import Question from './Question'
 import Quiz from './Quiz';
 import Login from '../containers/Login';
@@ -141,9 +145,20 @@ class App extends Component {
   }
 
   render() {
+    const styles = {
+      submit: {
+        margin: 12
+      }
+    }
     return (
+      <MuiThemeProvider>
       <div className="app">
-        <div>
+        <div className="title">
+          <div className="sdr">System Design Review</div>
+          <div className="interview">interviewing the full stack engineer</div>
+        </div>
+        <RaisedButton className="takeQuizBtn" label="Take New Quiz" primary={true} style={styles.submit}/>
+        <div className="loginWrapper">
           <Login userChange={this.userChange}
                   passChange={this.passChange}
                   userSave = {this.userSave}
@@ -163,7 +178,8 @@ class App extends Component {
               handleAnswerSelected = {this.handleAnswerSelected}
               handleSubmit = {this.handleSubmit}
               logSuccess = {this.state.logSuccess}/>
-    </div>
+      </div>
+      </MuiThemeProvider>
     )
    }
 }
