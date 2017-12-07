@@ -77,12 +77,11 @@ class App extends Component {
   }
 
   componentDidMount () {
-    // fetch('/questions')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     quiz = Object.assign(this.state, data);
-    //     this.setState(quiz);
-    //   })
+    // axios.get('/api/v1/fun')
+    //   .then(res => {
+    //     console.log('data', res.data)
+    //     this.setState({ quiz: res.data });
+    //   });
   }
 
   handleNew = (e) => {

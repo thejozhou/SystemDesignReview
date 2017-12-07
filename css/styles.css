@@ -43,14 +43,17 @@
 }
 
 .theQuiz {
-  border: 1px solid green;
-  padding-left: 10px;
-  margin: 2.5em auto;
+  background-color: #FCF4F7;
+  /*border: 1px solid green;*/
+  padding: 10px;
+  margin: 2.5em 2.5em;
 }
 
 .questionText {
   font-size: 30px;
   font-weight: bold;
+  background-color: green;
+  margin-left: 2.5%;
 }
 .interview {
   font-size:1.5em;
