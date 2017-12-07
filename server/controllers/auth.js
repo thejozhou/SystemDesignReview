@@ -28,13 +28,13 @@ const auth = {
 
         if (dbUserObj) {
             res.json(getToken(dbUserObj));
-        },
+        }
+    },
 
     validate: function(username, password) {
         const dbUserObj = {
             name: 'thejozhou',
-            
+
         }
-    }
     }
 }

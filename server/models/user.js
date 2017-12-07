@@ -1,1 +1,0 @@
-SELECT 1 FROM "User" WHERE "username" = 'username'
