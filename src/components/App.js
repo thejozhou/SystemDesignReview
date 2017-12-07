@@ -82,12 +82,16 @@ class App extends Component {
 
     //shuffle the array
 
-    fetch('/api/v1/fun')
-      .then(data => {
+    axios.get('/api/v1/fun')
+      .then(res => {
+        console.log(res.data)
 
-        console.log('the dddaaata    ',data)
+        this.setState({quiz:res.data});
+
+        console.log(this.state)
       })
-      // .then(data => {
+      //  .then(data => {
+      //    console.log(data)
       //   quiz = Object.assign(this.state, data);
       //   this.setState(quiz);
       // })

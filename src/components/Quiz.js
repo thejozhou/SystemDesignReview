@@ -21,7 +21,7 @@ class Quiz extends Component {
           <h2>Question {index + 1}</h2>
 
             <Question
-              question={quiz.questions[index]}
+              question={quiz[index]}
               index={index}
               onAnswerSelected={(event) => handleAnswerSelected(event)}
               onSubmit={() => handleSubmit()}
