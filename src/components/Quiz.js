@@ -10,9 +10,9 @@ class Quiz extends Component {
 //if the user is verified then the questions are retrieved
     if (logSuccess)
     return (
-      <div className="theQuiz">
+      <div>
         {completed ?
-          <div>
+          <div className="theQuiz">
             <h2>Congratulations, you finished the quiz</h2>
             <h2>Your score is <span className="score">{score}</span></h2>
           </div>

@@ -22,12 +22,18 @@ componentDidMount() {
         maxWidth: 250,
       },
       radioButton: {
+        width: '95%',
         marginBottom: 16,
+        marginLeft: '2.5%',
         padding: '2.5em 0',
-        border: '1px solid black'
+        // border: '1px solid black',
+        backgroundColor: 'white',
+        borderRadius: '10px'
       },
       submit: {
-        margin: 12
+        margin: '2.5%',
+        marginLeft: '30%',
+        width: '40%'
       },
       label: {
         'font-size': '30px',

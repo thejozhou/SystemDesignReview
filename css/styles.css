@@ -8,7 +8,7 @@
     margin-top: 300px;
     margin-left: 40%;
     box-sizing: border-box;
-    font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
+    /*font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;*/
     color: #393939;
     background-color: #FFF;
     /*max-width: 12em;*/
@@ -35,7 +35,8 @@
 
 .title {
   text-align:center;
-  background-color:red;
+  background-color: #eee;
+  border-bottom: 3px solid black;
 }
 
 .sdr {
@@ -43,14 +44,17 @@
 }
 
 .theQuiz {
-  border: 1px solid green;
-  padding-left: 10px;
-  margin: 2.5em auto;
+  background-color: #FCF4F7;
+  /*border: 1px solid green;*/
+  padding: 10px;
+  margin: 2.5em 2.5em;
 }
 
 .questionText {
   font-size: 30px;
   font-weight: bold;
+  background-color: green;
+  margin-left: 2.5%;
 }
 .interview {
   font-size:1.5em;
