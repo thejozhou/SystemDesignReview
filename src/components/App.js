@@ -61,14 +61,23 @@ class App extends Component {
             ]
           }
       ],
-      index: 0,
-      numberOfQuestions: 0,
-      score: 0,
-      answers: [],
-      completed: false
+        index: 0,
+        numberOfQuestions: 2,
+        score: 0,
+        answers: [],
+        completed: false
       }
     }
 
+  }
+
+  componentDidMount () {
+    // fetch('/questions')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     quiz = Object.assign(this.state, data);
+    //     this.setState(quiz);
+    //   })
   }
 
   handleNew = (e) => {
@@ -114,22 +123,31 @@ class App extends Component {
   }
 
   handleSubmit = () => {
-    if (this.state.index + 1 < this.state.numberOfQuestions) {
-      this.setState({'index': this.state.index + 1})
+    const { quiz } = this.state;
+    const stateNew = Object.assign({}, this.state);
+    console.log('index', quiz.index)
+    if (quiz.index + 1 < quiz.numberOfQuestions) {
+      stateNew.quiz.index = quiz.index + 1;
+      console.log('newIndex', stateNew.quiz.index)
+      this.setState(stateNew)
     } else {
-      this.setState({'completed': true})
-      let score = this.state.score || 0
-      this.state.answers.map((answer, i) => (
-        score = score + this.state.quiz.questions[i].answers[answer].point
+      stateNew.quiz.completed = true;
+      this.setState(stateNew);
+      let score = quiz.score;
+      stateNew.quiz.answers.map((answer, i) => (
+        score = score + quiz.questions[i].answers[answer].point
       ))
-      this.setState({'score': score})
+      console.log('score', score);
+      stateNew.quiz.score = score;
+      this.setState(stateNew)
     }
   }
 
   handleAnswerSelected = (event) => {
-    let list = [...this.state.answers.slice(0, this.state.index),
-                parseInt(event.target.value),
-                ...this.state.answers.slice(this.state.index + 1)]
+    const { quiz } = this.state;
+    let list = [...quiz.answers.slice(0, quiz.index),
+                event.target.value,
+                ...quiz.answers.slice(quiz.index + 1)]
     this.setState({'answers': list})
   }
 
@@ -149,10 +167,10 @@ class App extends Component {
                 />
         </div>
         <Quiz quiz = {this.state.quiz}
-              index = {this.state.index}
-              numberOfQuestions = {this.state.numberOfQuestions}
-              score = {this.state.score}
-              completed = {this.state.completed}
+              index = {this.state.quiz.index}
+              numberOfQuestions = {this.state.quiz.numberOfQuestions}
+              score = {this.state.quiz.score}
+              completed = {this.state.quiz.completed}
               handleAnswerSelected = {this.handleAnswerSelected}
               handleSubmit = {this.handleSubmit}
               logSuccess = {this.state.logSuccess}/>

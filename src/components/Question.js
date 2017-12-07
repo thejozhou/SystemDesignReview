@@ -30,26 +30,30 @@ class Question extends Component {
           <span className='question'>
             <h1>{question.question}</h1>
           </span>
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>
             <RadioButton
-              value="light"
+              value={0}
               label={question.answers[0].label}
               style={styles.radioButton}
+
             />
             <RadioButton
-              value="blah"
+              value={1}
               label={question.answers[1].label}
               style={styles.radioButton}
+
             />
             <RadioButton
-              value="ludicrous"
+              value={2}
               label={question.answers[2].label}
               style={styles.radioButton}
+
             />
             <RadioButton
-              value="anything"
+              value={3}
               label={question.answers[3].label}
               style={styles.radioButton}
+
             />
           </RadioButtonGroup>
           <RaisedButton label="Submit" primary={true} style={styles.submit} onClick={onSubmit} />
