@@ -6,7 +6,7 @@ import '../../css/styles.css'
 class Quiz extends Component {
 
   render() {
-    const { quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit,logSuccess } = this.props
+    const { scramble, quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit,logSuccess } = this.props
 //if the user is verified then the questions are retrieved
     if (logSuccess)
     return (

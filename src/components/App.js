@@ -76,14 +76,24 @@ class App extends Component {
 
   }
 
-  componentDidMount () {
-    // fetch('/questions')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     quiz = Object.assign(this.state, data);
-    //     this.setState(quiz);
-    //   })
+  componentWillMount () {
+    // let curr_question = this.state.quiz.questions[this.state.quiz.index].answers;
+    // console.log('current question',curr_question)
+
+    //shuffle the array
+
+    fetch('/api/v1/fun')
+      .then(data => {
+
+        console.log('the dddaaata    ',data)
+      })
+      // .then(data => {
+      //   quiz = Object.assign(this.state, data);
+      //   this.setState(quiz);
+      // })
   }
+
+
 
   handleNew = (e) => {
     e.preventDefault()

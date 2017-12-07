@@ -10,6 +10,11 @@ class Question extends Component {
     super(props)
   }
 
+componentDidMount() {
+  this.props.scramble;
+}
+
+
   render() {
     const { question, index, onAnswerSelected, onSubmit } = this.props;
     const styles = {
