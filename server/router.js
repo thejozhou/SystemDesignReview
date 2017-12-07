@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var user = require('./controllers/user.js');
-// var auth = require('./auth.js');
-// var user = require('./users.js');
 var userController = require('./controllers/userController.js');
 
 // Routes accessible by anyone
