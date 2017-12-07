@@ -13,12 +13,15 @@ class Login extends Component {
       const {
         userChange,
         passChange,
+        emailChange,
         userSubmit,
         userSave,
         isNew,
         logSuccess,
         handleNew,
         username,
+        password,
+        email,
         handleLogout
       } = this.props;
 
@@ -29,8 +32,8 @@ class Login extends Component {
               <h2>LOGIN</h2>
 
               <form>
-                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
+                <input className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username"/><br/>
+                <input className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password"/><br/>
                 <input className="but" onClick={userSubmit} value="LOGIN" type="submit"/>
               </form>
             <br/>
@@ -45,8 +48,9 @@ class Login extends Component {
           <div className="innerBox">
               <h3>CREATE NEW ACCOUNT</h3>
               <form>
-                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
+                <input className="userName" onChange={userChange} value={username} name="username" type= "text" placeholder="username"/><br/>
+                <input className="pword" onChange={passChange} value = {password} name="password" type="password" placeholder="password"/><br/>
+                <input className="email" onChange={emailChange} value = {email} name="email" type="text" placeholder="email"/><br/>
                 <input className="but" onClick={userSave} value="add account" type="submit"/>
               </form>
           </div>
