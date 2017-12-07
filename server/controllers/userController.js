@@ -53,8 +53,7 @@ const userController = {
       } else {
         res.status(200)
         res.json({
-          status: 'success',
-          message: 'Verification complete!'
+          genToken(result);
         })
       }
     })
@@ -65,11 +64,12 @@ const userController = {
 }
 
 genToken = (user) => {
-  const expres = expiresIn(7);
+  const expires = expiresIn(7);
   const token = jwt.encode({
     exp: expires
   }, config.secret());
   return {
+    status: 'success',
     token: token,
     expires: expires,
     user: user
