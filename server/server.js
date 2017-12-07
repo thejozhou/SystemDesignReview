@@ -28,7 +28,6 @@ app.all('/*', function(req, res, next) {
 });
 
 // app.all('/api/v1/*', [require('./middlewares/validateRequest')]);
-
 app.use('/', require('./router.js'));
 
 // app.use(function(req, res, next) {
