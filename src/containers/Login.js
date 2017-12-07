@@ -72,11 +72,8 @@ class Login extends Component {
       //render welcome page if member is logged in
       else if (logSuccess) {
         return (
-          {/*<div className="innerBox">
-            <h3>Welcome, {username}</h3>
-            <h4>Score: </h4>
-            <a href="" onClick={handleLogout}>logout</a>
-          </div>*/}
+          <div>
+          </div>
         )
       }
     }

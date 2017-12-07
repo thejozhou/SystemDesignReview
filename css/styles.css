@@ -5,6 +5,7 @@
 body {
   /*background-image: url(./animalCollective.jpg);*/
   font-family: Verdana;
+  background-color: #4CAF50;
 }
 
 .app {
@@ -114,6 +115,10 @@ input[type=text], input[type=password] {
 
 .sdr {
     font-size:4em;
+}
+
+.quizWrapper {
+  z-index: 4;
 }
 
 .theQuiz {

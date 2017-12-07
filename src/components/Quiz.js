@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Question from './Question';
+import Background from '../../css/animalCollective.jpg'
+
 
 import '../../css/styles.css'
 class Quiz extends Component {
@@ -11,6 +13,7 @@ class Quiz extends Component {
     if (logSuccess)
     return (
       <div>
+      <div className="quizWrapper">
         {completed ?
           <div className="theQuiz">
             <div className="completedMessage">
@@ -31,6 +34,8 @@ class Quiz extends Component {
 
           </div>
         }
+      </div>
+      {/*<img className="background" src={Background} />*/}
       </div>
     )
     //if the user is not verified then the logo screen is rendered

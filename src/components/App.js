@@ -207,7 +207,7 @@ class App extends Component {
                 handleAnswerSelected = {this.handleAnswerSelected}
                 handleSubmit = {this.handleSubmit}
                 logSuccess = {this.state.logSuccess}/>
-          <img className="background" src={Background} />
+          {/*<img className="background" src={Background} />*/}
         </div>
       </div>
       </MuiThemeProvider>
