@@ -21,60 +21,29 @@ class App extends Component {
       email:"",
       isNew:false,
       logSuccess:false,
-      quiz: {
-        questions: [
-          {
-            question: "5 * 4 =",
-            answers: [
-              {
-                "point": 1,
-                "label": "20"
-              },
-              {
-                "point": 0,
-                "label": "10"
-              },
-              {
-                "point": 0,
-                "label": "30"
-              },
-              {
-                "point": 0,
-                "label": "25"
-              },
-            ]
+      quiz: [
+            {
+              question: "5 * 4 =",
+              answers: [
+              "sadsfafd","asdfasdf"
+              ]
           },
           {
             question: "5 + 5 =",
             answers: [
-              {
-                "point": 0,
-                "label": "2345"
-              },
-              {
-                "point": 1,
-                "label": "10"
-              },
-              {
-                "point": 0,
-                "label": "999"
-              },
-              {
-                "point": 0,
-                "label": "55"
-              },
+              "asdfasdf","asdsfasdfsd"
             ]
           }
       ],
         index: 0,
         numberOfQuestions: 2,
         score: 0,
-        answers: [],
+        solution:0,
         completed: false
       }
     }
 
-  }
+
 
   componentWillMount () {
     // let curr_question = this.state.quiz.questions[this.state.quiz.index].answers;
@@ -158,32 +127,37 @@ class App extends Component {
   }
 
   handleSubmit = () => {
-    const { quiz } = this.state;
+    const { quiz,index,numberOfQuestions,score } = this.state;
     const stateNew = Object.assign({}, this.state);
-    console.log('index', quiz.index)
-    if (quiz.index + 1 < quiz.numberOfQuestions) {
-      stateNew.quiz.index = quiz.index + 1;
-      console.log('newIndex', stateNew.quiz.index)
+    console.log('index', index)
+    if (index + 1 < numberOfQuestions) {
+      stateNew.index = index + 1;
+      console.log('newIndex', stateNew.index)
       this.setState(stateNew)
     } else {
-      stateNew.quiz.completed = true;
+      stateNew.completed = true;
       this.setState(stateNew);
-      let score = quiz.score;
-      stateNew.quiz.answers.map((answer, i) => (
-        score = score + quiz.questions[i].answers[answer].point
-      ))
-      console.log('score', score);
-      stateNew.quiz.score = score;
-      this.setState(stateNew)
+      let score = score;
+      // stateNew.answers.map((answer, i) => (
+      //   score = score + quiz.questions[i].answers[answer].point
+      // ))
+      // console.log('score', score);
+      // stateNew.quiz.score = score;
+      // this.setState(stateNew)
     }
   }
 
   handleAnswerSelected = (event) => {
-    const { quiz } = this.state;
-    let list = [...quiz.answers.slice(0, quiz.index),
-                event.target.value,
-                ...quiz.answers.slice(quiz.index + 1)]
-    this.setState({'answers': list})
+    console.log(event.target.value)
+    // const { quiz,index } = this.state;
+    // let list = [...quiz.answers.slice(0, index),
+    //             event.target.value,
+    //             ...quiz.answers.slice(index + 1)]
+    // this.setState({'answers': list})
+    console.log('target  score ',typeof(event.target.value), typeof(this.state.solution))
+    if (parseInt(event.target.value)===this.state.solution) {
+      this.state.score+=10;
+    }
   }
 
   render() {
@@ -204,6 +178,7 @@ class App extends Component {
           <Login userChange={this.userChange}
                   passChange={this.passChange}
                   emailChange={this.emailChange}
+                  score={this.state.score}
                   userSave = {this.userSave}
                   userSubmit={this.userSubmit}
                   handleNew={this.handleNew}
@@ -216,10 +191,10 @@ class App extends Component {
                 />
         </div>
         <Quiz quiz = {this.state.quiz}
-              index = {this.state.quiz.index}
-              numberOfQuestions = {this.state.quiz.numberOfQuestions}
-              score = {this.state.quiz.score}
-              completed = {this.state.quiz.completed}
+              index = {this.state.index}
+              numberOfQuestions = {this.state.numberOfQuestions}
+              score = {this.state.score}
+              completed = {this.state.completed}
               handleAnswerSelected = {this.handleAnswerSelected}
               handleSubmit = {this.handleSubmit}
               logSuccess = {this.state.logSuccess}/>
