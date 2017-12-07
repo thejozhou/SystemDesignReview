@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 import '../../css/styles.css'
+
 
 class Login extends Component {
 
@@ -13,12 +16,15 @@ class Login extends Component {
       const {
         userChange,
         passChange,
+        emailChange,
         userSubmit,
         userSave,
         isNew,
         logSuccess,
         handleNew,
         username,
+        password,
+        email,
         handleLogout
       } = this.props;
 
@@ -26,12 +32,11 @@ class Login extends Component {
       if (!isNew && !logSuccess) {
         return (
             <div className="innerBox">
-              <h2>LOGIN</h2>
-
+              <span style={{'margin-left':'50%'}}><h2>LOGIN</h2></span>
               <form>
-                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <input className="but" onClick={userSubmit} value="LOGIN" type="submit"/>
+                <TextField className="userName" onChange={userChange} value= {username} name="username" type= "text" placeholder="username"/><br/>
+                <TextField className="pword" onChange={passChange} name="password" value = {password} type="password" placeholder="password"/><br/>
+                <RaisedButton primary={true} label="LOGIN" className="but" onClick={userSubmit} type="submit"/>
               </form>
             <br/>
               <a href="" onClick={handleNew}>create new account</a>
@@ -45,9 +50,10 @@ class Login extends Component {
           <div className="innerBox">
               <h3>CREATE NEW ACCOUNT</h3>
               <form>
-                <input className="userName" onChange={userChange} name="username" type= "text" placeholder="username"/><br/>
-                <input className="pword" onChange={passChange} name="password" type="password" placeholder="password"/><br/>
-                <input className="but" onClick={userSave} value="add account" type="submit"/>
+                <TextField className="userName" onChange={userChange} value={username} name="username" type= "text" placeholder="username"/><br/>
+                <TextField className="pword" onChange={passChange} value = {password} name="password" type="password" placeholder="password"/><br/>
+                <TextField className="email" onChange={emailChange} value = {email} name="email" type="text" placeholder="email"/><br/>
+                <RaisedButton primary={true} label="Add Account" className="but" onClick={userSave} type="submit"/>
               </form>
           </div>
         )

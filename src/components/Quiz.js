@@ -17,7 +17,7 @@ class Quiz extends Component {
             <h2>Your score is <span className="score">{score}</span></h2>
           </div>
         :
-          <div>
+          <div className="theQuiz">
           <h2>Question {index + 1}</h2>
 
             <Question
@@ -34,12 +34,8 @@ class Quiz extends Component {
     //if the user is not verified then the logo screen is rendered
     else {
       return (
-        <div className="title">
-          <div className="sdr">System Design Review</div>
-          <div className="interview">interviewing the full stack engineer</div>
+        <div>
         </div>
-
-
       )
     }
   }
