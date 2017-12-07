@@ -48,7 +48,6 @@ class Question extends Component {
               label={question.answers[0].label}
               style={styles.radioButton}
               labelStyle={styles.label}
-              iconStyle={{height: 30, width: 30}}
             />
             <RadioButton
               value={1}

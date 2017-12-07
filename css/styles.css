@@ -8,7 +8,7 @@
     margin-top: 300px;
     margin-left: 40%;
     box-sizing: border-box;
-    font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
+    /*font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;*/
     color: #393939;
     background-color: #FFF;
     /*max-width: 12em;*/
@@ -35,7 +35,8 @@
 
 .title {
   text-align:center;
-  background-color:red;
+  background-color: #eee;
+  border-bottom: 3px solid black;
 }
 
 .sdr {
