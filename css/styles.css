@@ -3,34 +3,30 @@
 }
 
 body {
-  /*background-image: url(./animalCollective.jpg);*/
   font-family: Verdana;
   background-color: #00A3CA;
 }
+
 
 #root {
   width: 100%;
   height: 100%;
 }
 
-.app {
-  /*z-index: 2;*/
-}
-
 .background {
-  z-index:1;
+  z-index:-1;
   display: flex;
   flex-direction: column;
   position:fixed;
   margin: 0;
   opacity:0.7;
     /* Set rules to fill background */
-  min-height: 100%;
+  /*min-height: 750px;*/
   min-width: 1024px;
 
   /* Set up proportionate scaling */
   width: 100%;
-  height: auto;
+  height: 860px;
 
   /* Set up positioning */
   top: 0;

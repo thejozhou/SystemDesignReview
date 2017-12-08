@@ -11,7 +11,7 @@ class Question extends Component {
   }
 
   render() {
-    const { question, index, onAnswerSelected, onSubmit } = this.props;
+    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit } = this.props;
     const styles = {
       block: {
         maxWidth: 250,
@@ -35,6 +35,24 @@ class Question extends Component {
         'font-weight': 'bold'
       }
     };
+
+    console.log(correct)
+
+function rightOrWrong(correct) {
+  console.log('this is the correct state ',correct)
+    if (correct===1)
+    return (<div>Correct Answer!</div>)
+    else if (correct===2)
+    return (<div>Incorrect Answer!</div>)
+}
+
+function nextPage() {
+  return (
+
+  <RaisedButton label=">" primary={true} onClick={nextSubmit} />
+
+  )
+}
 
     return (
       <MuiThemeProvider>
@@ -68,7 +86,11 @@ class Question extends Component {
               labelStyle={styles.label}
             />
           </RadioButtonGroup>
-          <RaisedButton label="Submit" primary={true} style={styles.submit} onClick={handleSubmit} />
+
+          {rightOrWrong(this.props.correct)}
+          <RaisedButton label="Submit" primary={true} style={styles.submit} onClick={onSubmit} />
+          {nextPage()}
+
         </div>
       </MuiThemeProvider>
     )
