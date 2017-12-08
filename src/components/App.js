@@ -155,6 +155,7 @@ class App extends Component {
     console.log('index', quiz.index)
     if (quiz.index + 1 < quiz.numberOfQuestions) {
       stateNew.quiz.index = quiz.index + 1;
+      stateNew.quiz.correct = 0;
       console.log('newIndex', stateNew.quiz.index)
       this.setState(stateNew)
     } else {
@@ -238,6 +239,7 @@ class App extends Component {
                 completed = {this.state.quiz.completed}
                 handleAnswerSelected = {this.handleAnswerSelected}
                 handleSubmit = {this.handleSubmit}
+                nextSubmit = {this.nextSubmit}
                 logSuccess = {this.state.logSuccess}
                 retakeQuiz = {this.retakeQuiz}
                 correct = {this.state.quiz.correct} />

@@ -54,6 +54,30 @@ function nextPage() {
   )
 }
 
+var shuffleAnswers = (input) => {
+      let answersArr = [];
+      for (let i = 0; i < input.length; i += 1) {
+        answersArr.push(input[i]);
+      }
+      var count = answersArr.length, temp, index;
+
+
+      // While there are still elements in answersArr
+      while (count > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * count);
+        // Decrease count by 1
+        count--;
+        // And swap the last element with it
+        temp = answersArr[count];
+        answersArr[count] = answersArr[index];
+        answersArr[index] = temp;
+      }
+      return answersArr;
+    }
+
+    var answers = shuffleAnswers(question.answers);
+
     return (
       <MuiThemeProvider>
         <div>
