@@ -3,22 +3,17 @@
 }
 
 body {
-  /*background-image: url(./animalCollective.jpg);*/
   font-family: Verdana;
-  background-color: #4CAF50;
 }
+
 
 #root {
   width: 100%;
   height: 100%;
 }
 
-.app {
-  /*z-index: 2;*/
-}
-
 .background {
-  z-index:1;
+  z-index:-1;
   display: flex;
   flex-direction: column;
   position:fixed;

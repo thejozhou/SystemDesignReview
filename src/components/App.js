@@ -83,6 +83,7 @@ class App extends Component {
         console.log('data', res.data)
         const stateNew = Object.assign({}, this.state);
         stateNew.quiz.questions = res.data;
+        stateNew.quiz.numberOfQuestions = res.data.length;
         this.setState(stateNew);
       });
   }
