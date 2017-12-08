@@ -22,6 +22,7 @@ class App extends Component {
       email:"",
       isNew:false,
       logSuccess:false,
+      nextPageOn: false,
       quiz: {
         questions: [
           {
@@ -70,9 +71,13 @@ class App extends Component {
         index: 0,
         numberOfQuestions: 2,
         score: 0,
+        solution:0,
+        response:0,
         answers: [],
-        completed: false
+        completed: false,
+        correct:-1
       }
+
     }
 
   }
@@ -145,7 +150,7 @@ class App extends Component {
     //axios.post('/save',{username:this.state.username,password:this.state.password})
   }
 
-  handleSubmit = () => {
+  nextSubmit = () => {
     const { quiz } = this.state;
     const stateNew = Object.assign({}, this.state);
     console.log('index', quiz.index)
@@ -156,14 +161,30 @@ class App extends Component {
     } else {
       stateNew.quiz.completed = true;
       this.setState(stateNew);
-      // let score = quiz.score;
-      // stateNew.quiz.answers.map((answer, i) => (
-      //   score = score + quiz.questions[i].answers[answer].point
-      // ))
-      // console.log('score', score);
-      // stateNew.quiz.score = score;
-      // this.setState(stateNew)
     }
+  }
+
+  handleSubmit = () => {
+    const { quiz } = this.state;
+    console.log('resopnse, solution   ', quiz.response, quiz.solution)
+    let tempState = this.state;
+      if (quiz.response===quiz.solution) {
+        console.log('cooorrrect')
+        //when correct
+        let tempScore = quiz.score + 10;
+        tempState.quiz.score = tempScore;
+        tempState.quiz.correct = 1;
+        this.setState(tempState);
+        this.setState({nextPageOn:true});
+
+      }
+      //when incorrect
+      else {
+        tempState.quiz.correct = 2;
+        this.setState(tempState);
+      }
+
+
   }
 
   handleAnswerSelected = (event) => {
@@ -172,6 +193,9 @@ class App extends Component {
     //             event.target.value,
     //             ...quiz.answers.slice(quiz.index + 1)]
     // this.setState({'answers': list})
+    let tempState = this.state;
+    tempState.quiz.response = parseInt(event.target.value);
+    this.setState(tempState)
   }
 
   render() {
@@ -188,6 +212,7 @@ class App extends Component {
             <Login userChange={this.userChange}
                     passChange={this.passChange}
                     emailChange={this.emailChange}
+                    score={this.state.quiz.score}
                     userSave = {this.userSave}
                     userSubmit={this.userSubmit}
                     handleNew={this.handleNew}
@@ -206,9 +231,11 @@ class App extends Component {
                 completed = {this.state.quiz.completed}
                 handleAnswerSelected = {this.handleAnswerSelected}
                 handleSubmit = {this.handleSubmit}
-                logSuccess = {this.state.logSuccess}/>
+                logSuccess = {this.state.logSuccess}
+                correct = {this.state.quiz.correct}
+              />
 
-          <img className="background" src={Background} />
+          {/* <img className="background" src={Background} /> */}
         </div>
       </div>
       </MuiThemeProvider>
