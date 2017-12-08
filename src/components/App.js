@@ -70,8 +70,11 @@ class App extends Component {
         index: 0,
         numberOfQuestions: 2,
         score: 0,
+        solution: 0,
+        response: 0,
         answers: [],
-        completed: false
+        completed: false,
+        correct: 0
       }
     }
 
@@ -174,6 +177,14 @@ class App extends Component {
     // this.setState({'answers': list})
   }
 
+  retakeQuiz = () => {
+    const stateNew = Object.assign({}, this.state);
+    stateNew.quiz.index = 0;
+    stateNew.quiz.score = 0;
+    stateNew.quiz.completed = false;
+    this.setState(stateNew);
+  }
+
   render() {
     const styles = {
       submit: {
@@ -206,9 +217,10 @@ class App extends Component {
                 completed = {this.state.quiz.completed}
                 handleAnswerSelected = {this.handleAnswerSelected}
                 handleSubmit = {this.handleSubmit}
-                logSuccess = {this.state.logSuccess}/>
+                logSuccess = {this.state.logSuccess}
+                retakeQuiz = {this.retakeQuiz} />
 
-          <img className="background" src={Background} />
+          {/*<img className="background" src={Background} />*/}
         </div>
       </div>
       </MuiThemeProvider>

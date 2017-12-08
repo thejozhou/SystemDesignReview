@@ -8,7 +8,7 @@ import '../../css/styles.css'
 class Quiz extends Component {
 
   render() {
-    const { quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit,logSuccess } = this.props
+    const { quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit,logSuccess, retakeQuiz } = this.props
 //if the user is verified then the questions are retrieved
     if (logSuccess)
     return (
@@ -20,6 +20,7 @@ class Quiz extends Component {
               <h2>Congratulations, you finished the quiz</h2>
               <h2>Your score is <span className="score">{score}</span></h2>
             </div>
+            <button className="retakeBtn" onClick={retakeQuiz}>Retake Quiz</button>
           </div>
         :
           <div className="theQuiz">
@@ -29,7 +30,7 @@ class Quiz extends Component {
               question={quiz.questions[index]}
               index={index}
               onAnswerSelected={(event) => handleAnswerSelected(event)}
-              onSubmit={() => handleSubmit()}
+              handleSubmit={() => handleSubmit()}
             />
 
           </div>
