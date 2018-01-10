@@ -13,6 +13,15 @@ const loginReducer = (state = initialState,action) => {
     case 'HANDLE_NEW':
      return {...state, isNew:true};
 
+    case 'USER_CHANGE':
+      return {...state, username: action.payload};
+
+    case 'PASS_CHANGE':
+      return {...state, password: action.payload};
+
+    case 'EMAIL_CHANGE':
+      return {...state, email: action.payload};
+
     case 'USER_SUBMIT':
         if (action.payload===200)
           return {...state, logSuccess: true};
