@@ -36,10 +36,12 @@ class App extends Component {
           }
       ],
         index: 0,
-        numberOfQuestions: 2,
+        numberOfQuestions: 7,
         score: 0,
         solution:0,
-        completed: false
+        response:0,
+        completed: false,
+        correct:-1
       }
     }
 
@@ -127,37 +129,51 @@ class App extends Component {
   }
 
   handleSubmit = () => {
-    const { quiz,index,numberOfQuestions,score } = this.state;
+    const { solution, response, quiz,index,numberOfQuestions,score } = this.state;
     const stateNew = Object.assign({}, this.state);
-    console.log('index', index)
+    console.log('index', index,' numquestions  ',numberOfQuestions)
     if (index + 1 < numberOfQuestions) {
       stateNew.index = index + 1;
       console.log('newIndex', stateNew.index)
-      this.setState(stateNew)
+      this.setState(stateNew);
     } else {
       stateNew.completed = true;
       this.setState(stateNew);
-      let score = score;
+    }
+
+      console.log('response   solution   ',response,solution)
+      if (response===solution) {
+        console.log('cooorrrect')
+        //when correct
+        let tempScore = score + 10;
+        stateNew.score = tempScore;
+        stateNew.correct = 1;
+        this.setState(stateNew);
+
+      }
+      //when incorrect
+      else {
+        stateNew.correct = 2;
+        this.setState(stateNew);
+      }
       // stateNew.answers.map((answer, i) => (
       //   score = score + quiz.questions[i].answers[answer].point
       // ))
       // console.log('score', score);
       // stateNew.quiz.score = score;
       // this.setState(stateNew)
-    }
+
   }
 
   handleAnswerSelected = (event) => {
-    console.log(event.target.value)
+    console.log('answer selected   ',event.target.value)
     // const { quiz,index } = this.state;
     // let list = [...quiz.answers.slice(0, index),
     //             event.target.value,
     //             ...quiz.answers.slice(index + 1)]
     // this.setState({'answers': list})
-    console.log('target  score ',typeof(event.target.value), typeof(this.state.solution))
-    if (parseInt(event.target.value)===this.state.solution) {
-      this.state.score+=10;
-    }
+    this.setState({response:parseInt(event.target.value)})
+
   }
 
   render() {
@@ -197,7 +213,8 @@ class App extends Component {
               completed = {this.state.completed}
               handleAnswerSelected = {this.handleAnswerSelected}
               handleSubmit = {this.handleSubmit}
-              logSuccess = {this.state.logSuccess}/>
+              logSuccess = {this.state.logSuccess}
+              correct = {this.state.correct}/>
       </div>
       </MuiThemeProvider>
     )
