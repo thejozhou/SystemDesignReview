@@ -11,3 +11,10 @@ export const handleAnswer = (response) => {
     payload: response
   }
 }
+
+export const getData = (quiz) => {
+  return {
+    type: 'GET_DATA',
+    payload: quiz
+  }
+}
