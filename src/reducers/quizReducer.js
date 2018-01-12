@@ -1,4 +1,4 @@
-initialState = {
+const initialState = {
   quiz: [
         {
           question: "5 * 4 =",
@@ -25,11 +25,14 @@ initialState = {
 const quizReducer = (state=initialState,action) => {
   switch (action.type) {
   case 'HANDLE_SUBMIT':
-    return action.payload;
+    return {...state,...action.payload};
 
   case 'HANDLE_ANSWER':
     return {...state,response:action.payload};
 
+  case 'GET_DATA':
+    return {...state, quiz: action.payload};
+    
   default: return state;
   }
 }

@@ -3,28 +3,27 @@ import ReactDOM from 'react-dom';
 import Question from './Question';
 
 import '../../css/styles.css'
-class Quiz extends Component {
 
-  render() {
-    const { scramble, quiz, index, numberOfQuestions, score, completed, handleAnswerSelected, handleSubmit,logSuccess } = this.props
-//if the user is verified then the questions are retrieved
-    if (logSuccess)
+const Quiz = props => {
+
+    if (props.logSuccess)
     return (
       <div>
-        {completed ?
+        {props.completed ?
           <div className="theQuiz">
             <h2>Congratulations, you finished the quiz</h2>
-            <h2>Your score is <span className="score">{score}</span></h2>
+            <h2>Your score is <span className="score">{props.score}</span></h2>
           </div>
         :
           <div className="theQuiz">
-          <h2>Question {index + 1}</h2>
+          <h2>Question {props.index + 1}</h2>
 
             <Question
-              question={quiz[index]}
-              index={index}
-              onAnswerSelected={(event) => handleAnswerSelected(event)}
-              onSubmit={() => handleSubmit()}
+              question={props.quiz[props.index]}
+              index={props.index}
+              correct={props.correct}
+              onAnswerSelected={(event) => props.handleAnswerSelected(event)}
+              onSubmit={() => props.handleSubmit()}
             />
 
           </div>
@@ -39,7 +38,5 @@ class Quiz extends Component {
       )
     }
   }
-}
-
 
 export default Quiz
