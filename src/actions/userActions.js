@@ -8,6 +8,7 @@ export const handleLogout = () => {
   return {
     type: 'HANDLE_LOGOUT'
   }
+}
 
 export const userChange = (username) => {
   return {
