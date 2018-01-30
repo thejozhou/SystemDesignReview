@@ -17,18 +17,14 @@ class Question extends Component {
         maxWidth: 250,
       },
       radioButton: {
-        width: '95%',
         marginBottom: 16,
-        marginLeft: '2.5%',
         padding: '2.5em 0',
         // border: '1px solid black',
         backgroundColor: '#eee',
         borderRadius: '10px'
       },
       submit: {
-        margin: '2.5%',
-        marginLeft: '30%',
-        width: '40%'
+        margin: 12
       },
       label: {
         'font-size': '20px',
@@ -84,7 +80,7 @@ var shuffleAnswers = (input) => {
           <span className='questionWrapper'>
             <h1 className="questionText">{question.question}</h1>
           </span>
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>
+          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={props.onAnswerSelected}>
             <RadioButton
               value={0}
               label={question.answers[0]}
@@ -120,5 +116,6 @@ var shuffleAnswers = (input) => {
     )
   }
 }
+
 
 export default Question

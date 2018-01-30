@@ -65,6 +65,10 @@ input[type=text], input[type=password] {
     background-color: #EEE;
 }
 
+.welcome {
+
+}
+
 .loginWrapper {
   position: relative;
   width: 100%;
@@ -116,6 +120,7 @@ input[type=text], input[type=password] {
 
 .sdr {
     font-size:4em;
+
 }
 
 .quizWrapper {
