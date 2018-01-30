@@ -3,12 +3,11 @@ import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 
-import allReducers from './reducers/index';
-import App from './containers/App.js';
+import allReducers from './reducers';
+import App from './components/App.js';
 
 const store = createStore(
     allReducers
-    // composeWithDevTools()
 );
 
 ReactDom.render(
