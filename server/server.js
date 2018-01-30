@@ -36,5 +36,7 @@ app.use('/', require('./router.js'));
 //     next(err);
 // });
 
-const server = app.listen(config.port); //listens on port 3000 -> http://localhost:3000/
-// console.log('Your server is running on port ' + config.port + '.');
+const server = app.listen(config.port, function() {
+  console.log('Your server is running on port ' + config.port);
+}); //listens on port 3000 -> http://localhost:3000/
+
