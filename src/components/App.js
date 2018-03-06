@@ -23,6 +23,7 @@ class App extends Component {
       isNew:false,
       logSuccess:false,
       nextPageOn: false,
+      checked: 'none',
       quiz: {
         questions: [
           {
@@ -152,6 +153,7 @@ class App extends Component {
   nextSubmit = () => {
     const { quiz } = this.state;
     const stateNew = Object.assign({}, this.state);
+    stateNew.checked = false;
     console.log('index', quiz.index)
     if (quiz.index + 1 < quiz.numberOfQuestions) {
       stateNew.quiz.index = quiz.index + 1;
@@ -242,8 +244,10 @@ class App extends Component {
                 nextSubmit = {this.nextSubmit}
                 logSuccess = {this.state.logSuccess}
                 retakeQuiz = {this.retakeQuiz}
-                correct = {this.state.quiz.correct} />
-              <img className="background" src={Background} />
+                correct = {this.state.quiz.correct}
+                checked = {this.state.checked}
+              />
+              <img className="background" /*src={Background}*/ />
         </div>
       </div>
       </MuiThemeProvider>
