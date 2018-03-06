@@ -163,15 +163,15 @@ input[type=text], input[type=password] {
 }
 
 .retakeBtn {
-  padding: 14px 20px;
-  margin: 12px auto;
+  padding: 0.25em 1.5em;
+  margin: 1.35em auto;
   display: block;
   background-color: #00A3CA; /*#11FF87;*/
   color: white;
   border: 1px solid #00A3CA; /*#11FF87;*/
   border-radius: 30px;
   cursor: pointer;
-  width: 80%;
+  width: 10em;
   font-size: 1.35em;
   font-weight: bold;
 }
@@ -181,7 +181,7 @@ input[type=text], input[type=password] {
 }
 
 .completedMessage {
-  margin: 10% 2.5%;
+  margin-top: 10%;
   /*margin-left: 2.5%;*/
   display: block;
 }

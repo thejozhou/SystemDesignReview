@@ -200,6 +200,16 @@ class App extends Component {
     this.setState(tempState)
   }
 
+  shuffleAnswers = (array) => {
+    // iterate then call this function on each
+    // function can only be called once
+    // array of 4 options
+    array.forEach((option, i) => {
+
+    })
+
+  }
+
   retakeQuiz = () => {
     const stateNew = Object.assign({}, this.state);
     stateNew.quiz.index = 0;
