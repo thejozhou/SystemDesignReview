@@ -9,9 +9,8 @@ class Question extends Component {
   constructor(props) {
     super(props)
   }
-
   render() {
-    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit } = this.props;
+    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit, checked } = this.props;
     const styles = {
       block: {
         maxWidth: 250,
@@ -25,9 +24,10 @@ class Question extends Component {
         backgroundColor: 'none',
       },
       submit: {
-        margin: '2.5%',
+        margin: '3%',
         marginLeft: '30%',
-        width: '40%'
+        width: '40%',
+        borderRadius: 25
       },
       label: {
         'font-weight': 'bold',
@@ -42,7 +42,8 @@ class Question extends Component {
       },
       icon: {
         height: '40px',
-        width: '40px'
+        width: '40px',
+        fill: '#00A3CA'
       }
     };
 
@@ -59,34 +60,34 @@ function rightOrWrong(correct) {
 function nextPage() {
   return (
 
-  <RaisedButton label=">" backgroundColor="#00A3CA" labelStyle={styles.submitLabel} onClick={nextSubmit} />
+  <RaisedButton label=">" backgroundColor="#00A3CA" buttonStyle={{borderRadius: 25}} labelStyle={styles.submitLabel} style={{borderRadius: 25}} onClick={nextSubmit} />
 
   )
 }
 
-var shuffleAnswers = (input) => {
-      let answersArr = [];
-      for (let i = 0; i < input.length; i += 1) {
-        answersArr.push(input[i]);
-      }
-      var count = answersArr.length, temp, index;
+// var shuffleAnswers = (input) => {
+//       let answersArr = [];
+//       for (let i = 0; i < input.length; i += 1) {
+//         answersArr.push(input[i]);
+//       }
+//       var count = answersArr.length, temp, index;
 
 
-      // While there are still elements in answersArr
-      while (count > 0) {
-        // Pick a random index
-        index = Math.floor(Math.random() * count);
-        // Decrease count by 1
-        count--;
-        // And swap the last element with it
-        temp = answersArr[count];
-        answersArr[count] = answersArr[index];
-        answersArr[index] = temp;
-      }
-      return answersArr;
-    }
+//       // While there are still elements in answersArr
+//       while (count > 0) {
+//         // Pick a random index
+//         index = Math.floor(Math.random() * count);
+//         // Decrease count by 1
+//         count--;
+//         // And swap the last element with it
+//         temp = answersArr[count];
+//         answersArr[count] = answersArr[index];
+//         answersArr[index] = temp;
+//       }
+//       return answersArr;
+//     }
 
-    var answers = shuffleAnswers(question.answers);
+//     var answers = shuffleAnswers(question.answers);
 
     return (
       <MuiThemeProvider>
@@ -94,7 +95,7 @@ var shuffleAnswers = (input) => {
           <span className='questionWrapper'>
             <h1 className="questionText">{question.question}</h1>
           </span>
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>
+          <RadioButtonGroup name="shipSpeed" defaultSelected="any" onChange={onAnswerSelected}>
             <RadioButton
               value={0}
               label={question.answers[0]}
@@ -126,7 +127,7 @@ var shuffleAnswers = (input) => {
           </RadioButtonGroup>
 
           {rightOrWrong(this.props.correct)}
-          <RaisedButton label="Submit" labelStyle={styles.submitLabel}backgroundColor="#00A3CA" style={styles.submit} onClick={onSubmit} />
+          <RaisedButton label="Submit" labelStyle={styles.submitLabel}backgroundColor="#00A3CA" style={styles.submit} buttonStyle={{borderRadius: 25}} onClick={onSubmit} />
           {nextPage()}
 
         </div>

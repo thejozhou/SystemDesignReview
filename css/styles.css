@@ -15,6 +15,9 @@ body {
 }
 
 .background {
+  background-image: url("brain.png");
+  background-repeat: repeat;
+  resize: both;
   z-index:-1;
   display: flex;
   flex-direction: column;
@@ -27,7 +30,8 @@ body {
 
   /* Set up proportionate scaling */
   width: 100%;
-  height: 900px;
+  height: 100%;
+  max-height: 10000px;
 
   /* Set up positioning */
   top: 0;
@@ -151,7 +155,7 @@ input[type=text], input[type=password] {
 }
 
 #correctMsg {
-  color: #4CAF50;
+  color: #11FF87;
 }
 
 #incorrectMsg {
@@ -162,13 +166,18 @@ input[type=text], input[type=password] {
   padding: 14px 20px;
   margin: 12px auto;
   display: block;
-  background-color: #00A3CA; /*#4CAF50;*/
+  background-color: #00A3CA; /*#11FF87;*/
   color: white;
-  border: 1px solid #00A3CA; /*#4CAF50;*/
-  border-radius: 5px;
+  border: 1px solid #00A3CA; /*#11FF87;*/
+  border-radius: 30px;
   cursor: pointer;
   width: 80%;
-  font-size: 20px;
+  font-size: 1.35em;
+  font-weight: bold;
+}
+
+.retakeBtn:hover {
+  background-color: rgba(0, 144, 247, .4);
 }
 
 .completedMessage {
@@ -181,6 +190,7 @@ input[type=text], input[type=password] {
   width: 100%;
   margin: auto;
   text-align: center;
+  font-size: 1.35em;
 }
 
 .interview {
@@ -188,5 +198,5 @@ input[type=text], input[type=password] {
 }
 
 .score {
-  color: #4CAF50;
+  color: #11FF87;
 }
