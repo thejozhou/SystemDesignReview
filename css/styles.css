@@ -5,6 +5,7 @@
 body {
   font-family: Verdana;
   background-color: #00A3CA;
+  font-size: 1.35em;
 }
 
 
@@ -125,15 +126,15 @@ input[type=text], input[type=password] {
 .theQuiz {
   height: 800px;
   color: white;
-  background-color: rgb(51, 51, 51);
+  background-color: #2D2D2D; /*rgb(51, 51, 51);*/
   border: 1px solid rgba(0, 144, 247, .7);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   margin: 2.5em 2.5em;
 }
 
 .questionWrapper {
-  color: #eee;
+  color: #A0A0A0 /*#eee*/;
 }
 
 .questionText {
@@ -141,7 +142,20 @@ input[type=text], input[type=password] {
   font-weight: 400;
   /*background-color: green;*/
   margin-left: 2.5%;
-  color: #eee;
+  color: #A0A0A0 /*#eee*/;
+}
+
+.feedbackMsg {
+  margin: 10px 2.5%;
+  position: absolute;
+}
+
+#correctMsg {
+  color: #4CAF50;
+}
+
+#incorrectMsg {
+  color: red;
 }
 
 .retakeBtn {
