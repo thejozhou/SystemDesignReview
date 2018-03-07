@@ -11,8 +11,8 @@ import Background from '../../css/brain.png'
 import '../../css/styles.css'
 const axios = require('axios');
 
-// APP COMPONENT BELOW
 
+// ----- APP COMPONENT BELOW -----
 let manipulateData = (data) => {
   return data.map((problem, i) => {
     return {
@@ -54,6 +54,7 @@ let iterateAndShuffle = (changedData) => {
 }
 
 
+// ----- BEGIN APP COMPONENT -----
 class App extends Component {
   constructor(props) {
     super(props);
@@ -125,11 +126,9 @@ class App extends Component {
   componentDidMount () {
     axios.get('/api/v1/fun')
       .then(res => {
-        console.log('data', res.data)
+        // console.log('data', res.data)
         let changedData = manipulateData(res.data);
-        console.log('changed data', changedData);
         let shuffledData = iterateAndShuffle(changedData);
-        console.log('shuffledData', shuffledData);
         const stateNew = Object.assign({}, this.state);
         stateNew.quiz.questions = shuffledData;
         stateNew.quiz.numberOfQuestions = res.data.length;
@@ -191,18 +190,17 @@ class App extends Component {
               this.setState({username:'',password:''})
             }
           })
-          .catch(err => console.log('errrrrrrrrrrorrrrrrr',err))
+          .catch(err =>  console.log('errrrrrrrrrrorrrrrrr',err))
     //axios.post('/save',{username:this.state.username,password:this.state.password})
   }
 
   nextSubmit = () => {
     const { quiz } = this.state;
     const stateNew = Object.assign({}, this.state);
-    console.log('index', quiz.index)
     if (quiz.index + 1 < quiz.numberOfQuestions) {
       stateNew.quiz.index = quiz.index + 1;
       stateNew.quiz.correct = 0;
-      console.log('newIndex', stateNew.quiz.index)
+      // console.log('newIndex', stateNew.quiz.index)
       this.setState(stateNew)
     } else {
       stateNew.quiz.completed = true;
@@ -211,15 +209,11 @@ class App extends Component {
   }
 
   handleSubmit = () => {
-    // changed tempState to stateCopy
     let stateNew = Object.assign({}, this.state);
-    console.log('resopnse, solution   ', stateNew.quiz.response, stateNew.quiz.solution)
-      // if (stateNew.quiz.response === stateNew.quiz.solution) {
-        console.log('quiz response', stateNew.quiz.response);
+    // console.log('resopnse, solution   ', stateNew.quiz.response, stateNew.quiz.solution)
       if (stateNew.quiz.response === 10) {
-        console.log('cooorrrect')
+        // console.log('cooorrrect')
         //when correct
-        // let tempScore = stateNew.quiz.score + 10;
         stateNew.quiz.score += 10;
         stateNew.quiz.correct = 1;
         this.setState(stateNew);
@@ -233,17 +227,9 @@ class App extends Component {
   }
 
   handleAnswerSelected = (event) => {
-    // const { quiz } = this.state;
-    // let list = [...quiz.answers.slice(0, quiz.index),
-    //             event.target.value,
-    //             ...quiz.answers.slice(quiz.index + 1)]
-    // this.setState({'answers': list})
     let tempState = this.state;
-    // tempState.quiz.response = parseInt(event.target.value);
     tempState.quiz.response = parseInt(event.target.value)
-    console.log('event.target.value', event.target.value);
     this.setState(tempState)
-    console.log('state', this.state)
   }
 
   retakeQuiz = () => {
