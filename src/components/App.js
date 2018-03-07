@@ -30,7 +30,7 @@ let manipulateData = (data) => {
 let shuffleAnswers = (array) => {
   let newIndexes = [];
   for (let i = 0; i < array.length; i++) {
-    var randomizedNum = Math.floor(Math.random() * 4);
+    let randomizedNum = Math.floor(Math.random() * 4);
     if(newIndexes.indexOf(randomizedNum) === -1 && newIndexes.length < 4) {
       newIndexes.push(randomizedNum);
     } else {
@@ -126,9 +126,10 @@ class App extends Component {
   componentDidMount () {
     axios.get('/api/v1/fun')
       .then(res => {
-        // console.log('data', res.data)
+        console.log('data', res.data)
         let changedData = manipulateData(res.data);
         let shuffledData = iterateAndShuffle(changedData);
+
         const stateNew = Object.assign({}, this.state);
         stateNew.quiz.questions = shuffledData;
         stateNew.quiz.numberOfQuestions = res.data.length;
@@ -195,10 +196,10 @@ class App extends Component {
   }
 
   nextSubmit = () => {
-    const { quiz } = this.state;
+    // const { quiz } = this.state;
     const stateNew = Object.assign({}, this.state);
-    if (quiz.index + 1 < quiz.numberOfQuestions) {
-      stateNew.quiz.index = quiz.index + 1;
+    if (stateNew.quiz.index + 1 < stateNew.quiz.numberOfQuestions) {
+      stateNew.quiz.index += 1;
       stateNew.quiz.correct = 0;
       // console.log('newIndex', stateNew.quiz.index)
       this.setState(stateNew)

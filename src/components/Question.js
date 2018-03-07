@@ -30,7 +30,7 @@ class Question extends Component {
         borderRadius: 25
       },
       label: {
-        'font-weight': 'bold',
+        fontWeight: 'bold',
         color: '#A0A0A0',
         margin: '8px auto'
       },
@@ -52,7 +52,7 @@ class Question extends Component {
 function rightOrWrong(correct) {
   console.log('this is the correct state ',correct)
     if (correct===1)
-    return (<div id="correctMsg" className="feedbackMsg" >Correct Answer!</div>)
+    return (<div id="correctMsg" className="feedbackMsg" >Correct!</div>)
     else if (correct===2)
     return (<div id="incorrectMsg" className="feedbackMsg">Try Again</div>)
 }
@@ -126,9 +126,9 @@ function nextPage() {
             />
           </RadioButtonGroup>
 
-          {rightOrWrong(this.props.correct)}
           <RaisedButton label="Submit" labelStyle={styles.submitLabel}backgroundColor="#00A3CA" style={styles.submit} buttonStyle={{borderRadius: 25}} onClick={onSubmit} />
           {nextPage()}
+          {rightOrWrong(this.props.correct)}
 
         </div>
       </MuiThemeProvider>
