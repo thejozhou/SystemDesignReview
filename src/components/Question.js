@@ -10,7 +10,7 @@ class Question extends Component {
     super(props)
   }
   render() {
-    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit, checked } = this.props;
+    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit } = this.props;
     const styles = {
       block: {
         maxWidth: 250,
@@ -97,29 +97,29 @@ function nextPage() {
           </span>
           <RadioButtonGroup name="shipSpeed" defaultSelected="any" onChange={onAnswerSelected}>
             <RadioButton
-              value={0}
-              label={question.answers[0]}
+              value={question.answers[0].isCorrect}
+              label={question.answers[0].text}
               style={styles.radioButton}
               labelStyle={styles.label}
               iconStyle={styles.icon}
             />
             <RadioButton
-              value={1}
-              label={question.answers[1]}
+              value={question.answers[1].isCorrect}
+              label={question.answers[1].text}
               style={styles.radioButton}
               labelStyle={styles.label}
               iconStyle={styles.icon}
             />
             <RadioButton
-              value={2}
-              label={question.answers[2]}
+              value={question.answers[2].isCorrect}
+              label={question.answers[2].text}
               style={styles.radioButton}
               labelStyle={styles.label}
               iconStyle={styles.icon}
             />
             <RadioButton
-              value={3}
-              label={question.answers[3]}
+              value={question.answers[3].isCorrect}
+              label={question.answers[3].text}
               style={styles.radioButton}
               labelStyle={styles.label}
               iconStyle={styles.icon}
