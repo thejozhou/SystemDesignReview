@@ -31,7 +31,7 @@ const userModel = {
     })
   },
   findOne: (username) => {
-    return db.one('SELECT * FROM "User" WHERE "username" = $1', username)
+    return db.one('SELECT * FROM "User" WHERE "username" = $1 LIMIT 1', username)
     .then(data => {
         return data;
     })

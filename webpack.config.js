@@ -10,13 +10,21 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'babel-loader',
         test: /\.js$|\.jsx$/,
+        loaders: ['babel-loader?retainLines=true'],
         exclude: /node_modules/
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   },

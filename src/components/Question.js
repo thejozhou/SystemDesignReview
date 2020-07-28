@@ -9,60 +9,127 @@ class Question extends Component {
   constructor(props) {
     super(props)
   }
-
   render() {
-    const { question, index, onAnswerSelected, onSubmit } = this.props;
+    const { correct, question, index, onAnswerSelected, onSubmit, nextSubmit } = this.props;
     const styles = {
       block: {
         maxWidth: 250,
       },
       radioButton: {
-        marginBottom: 16,
-        padding: '2.5em 0',
-        border: '1px solid black'
+        width: '95%',
+        borderBottom: '2px solid #A0A0A0',
+        marginLeft: '2.5%',
+        padding: '1.5em 0',
+        // border: '1px solid black',
+        backgroundColor: 'none',
       },
       submit: {
-        margin: 12
+        margin: '3%',
+        marginLeft: '30%',
+        width: '40%',
+        borderRadius: 25
       },
       label: {
-        'font-size': '30px',
-        'font-weight': 'bold'
+        fontWeight: 'bold',
+        color: '#A0A0A0',
+        margin: '8px auto'
+      },
+      submitLabel: {
+        color: 'white',
+        fontFamily: 'Verdana',
+        fontSize: '20px',
+        fontWeight: 'bold'
+      },
+      icon: {
+        height: '40px',
+        width: '40px',
+        fill: '#00A3CA'
       }
     };
+
+    console.log(correct)
+
+function rightOrWrong(correct) {
+  console.log('this is the correct state ',correct)
+    if (correct===1)
+    return (<div id="correctMsg" className="feedbackMsg" >Correct!</div>)
+    else if (correct===2)
+    return (<div id="incorrectMsg" className="feedbackMsg">Try Again</div>)
+}
+
+function nextPage() {
+  return (
+
+  <RaisedButton label=">" backgroundColor="#00A3CA" buttonStyle={{borderRadius: 25}} labelStyle={styles.submitLabel} style={{borderRadius: 25}} onClick={nextSubmit} />
+
+  )
+}
+
+// var shuffleAnswers = (input) => {
+//       let answersArr = [];
+//       for (let i = 0; i < input.length; i += 1) {
+//         answersArr.push(input[i]);
+//       }
+//       var count = answersArr.length, temp, index;
+
+
+//       // While there are still elements in answersArr
+//       while (count > 0) {
+//         // Pick a random index
+//         index = Math.floor(Math.random() * count);
+//         // Decrease count by 1
+//         count--;
+//         // And swap the last element with it
+//         temp = answersArr[count];
+//         answersArr[count] = answersArr[index];
+//         answersArr[index] = temp;
+//       }
+//       return answersArr;
+//     }
+
+//     var answers = shuffleAnswers(question.answers);
 
     return (
       <MuiThemeProvider>
         <div>
-          <span className='question'>
+          <span className='questionWrapper'>
             <h1 className="questionText">{question.question}</h1>
           </span>
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light" onChange={onAnswerSelected}>
+          <RadioButtonGroup name="shipSpeed" defaultSelected="any" onChange={onAnswerSelected}>
             <RadioButton
-              value={0}
-              label={question.answers[0].label}
+              value={question.answers[0].isCorrect}
+              label={question.answers[0].text}
               style={styles.radioButton}
               labelStyle={styles.label}
+              iconStyle={styles.icon}
             />
             <RadioButton
-              value={1}
-              label={question.answers[1].label}
+              value={question.answers[1].isCorrect}
+              label={question.answers[1].text}
               style={styles.radioButton}
               labelStyle={styles.label}
+              iconStyle={styles.icon}
             />
             <RadioButton
-              value={2}
-              label={question.answers[2].label}
+              value={question.answers[2].isCorrect}
+              label={question.answers[2].text}
               style={styles.radioButton}
               labelStyle={styles.label}
+              iconStyle={styles.icon}
             />
             <RadioButton
-              value={3}
-              label={question.answers[3].label}
+              value={question.answers[3].isCorrect}
+              label={question.answers[3].text}
               style={styles.radioButton}
               labelStyle={styles.label}
+              iconStyle={styles.icon}
             />
           </RadioButtonGroup>
-          <RaisedButton label="Submit" primary={true} style={styles.submit} onClick={onSubmit} />
+
+          <RaisedButton label="Submit" labelStyle={styles.submitLabel}backgroundColor="#00A3CA" style={styles.submit} buttonStyle={{borderRadius: 25}} onClick={onSubmit} />
+          {nextPage()}
+          {rightOrWrong(this.props.correct)}
+
         </div>
       </MuiThemeProvider>
     )
